@@ -13,6 +13,7 @@ protocol NoteStorage {
 
 protocol NoteMessages {
     var createNewNoteWithSuccessMessage: String { get }
+    var createNewNoteErrorMessage: String { get }
 }
 
 final class NoteManager {
@@ -33,8 +34,8 @@ final class NoteManager {
             switch result {
             case .success:
                 self.successCompletion?(self.noteMessages.createNewNoteWithSuccessMessage)
-            case let .failure(error):
-                print(error)
+            case .failure:
+                self.failureCompletion?(self.noteMessages.createNewNoteErrorMessage)
             }
         }
     }
@@ -42,18 +43,11 @@ final class NoteManager {
 
 final class AlpacaNoteTests: XCTestCase {
     
-    func test_createNewNote_shouldCallNoteStorageCreateNewNote() {
-        let noteStorageSpy = NoteStorageSpy()
-        let sut = NoteManager(noteStorage: noteStorageSpy, noteMessages: NoteMessagesMock())
-        
-        sut.createNewNote(withText: "A simple text")
-        
-        XCTAssertTrue(noteStorageSpy.createNoteWasCalled)
-    }
-    
     func test_createNewNote_shouldCallSuccessCompletion_whenCreatedWithSuccess() {
         let noteMessagesMock = NoteMessagesMock()
-        let sut = NoteManager(noteStorage: NoteStorageSpy(), noteMessages: noteMessagesMock)
+        let noteStorageMock = NoteStorageMock()
+        noteStorageMock.shouldCreateWithSuccess = true
+        let sut = NoteManager(noteStorage: NoteStorageMock(), noteMessages: noteMessagesMock)
         let expectation = expectation(description: "Expect create new note")
         var receivedSuccessMessage = ""
         sut.successCompletion = { successMessage in
@@ -66,18 +60,39 @@ final class AlpacaNoteTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
         XCTAssertEqual(receivedSuccessMessage, noteMessagesMock.createNewNoteWithSuccessMessage)
     }
+    
+    func test_createNewNote_shouldCallErrorCompletion_whenCreatedWithError() {
+        let noteMessagesMock = NoteMessagesMock()
+        let noteStorageMock = NoteStorageMock()
+        noteStorageMock.shouldCreateWithSuccess = false
+        let sut = NoteManager(noteStorage: noteStorageMock, noteMessages: noteMessagesMock)
+        let expectation = expectation(description: "Expect create new note")
+        var receivedErrorMessage = ""
+        sut.failureCompletion = { errorMessage in
+            receivedErrorMessage = errorMessage
+            expectation.fulfill()
+        }
+        
+        sut.createNewNote(withText: "A simple text")
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(receivedErrorMessage, noteMessagesMock.createNewNoteErrorMessage)
+    }
 }
 
-private final class NoteStorageSpy: NoteStorage {
-    var createNoteWasCalled = false
-    
+private final class NoteStorageMock: NoteStorage {
+    var shouldCreateWithSuccess = true
     func createNewNote(withText text: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        createNoteWasCalled = true
-        completion(.success(()))
+        if shouldCreateWithSuccess {
+            completion(.success(()))
+            return
+        }
+        completion(.failure(NSError(domain: "A mocked error", code: 0)))
     }
 }
 
 private struct NoteMessagesMock: NoteMessages {
+    var createNewNoteErrorMessage = "An error occurred."
     var createNewNoteWithSuccessMessage = "Note created with success."
 }
 
