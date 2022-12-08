@@ -1,47 +1,14 @@
 //
-//  AlpacaNoteTests.swift
-//  AlpacaNoteTests
+//  AlpacaNoteFrameworkTests.swift
+//  AlpacaNoteFrameworkTests
 //
-//  Created by Lidiomar Fernando dos Santos Machado on 23/11/22.
+//  Created by Lidiomar Fernando dos Santos Machado on 08/12/22.
 //
 
 import XCTest
+@testable import AlpacaNoteFramework
 
-protocol NoteStorage {
-    func createNewNote(withText text: String, completion: @escaping (Result<Void, Error>) -> Void)
-}
-
-protocol NoteMessages {
-    var createNewNoteWithSuccessMessage: String { get }
-    var createNewNoteErrorMessage: String { get }
-}
-
-final class NoteManager {
-    private var noteStorage: NoteStorage
-    private var noteMessages: NoteMessages
-    
-    var successCompletion: ((String) -> Void)?
-    var failureCompletion: ((String) -> Void)?
-    
-    init(noteStorage: NoteStorage, noteMessages: NoteMessages) {
-        self.noteStorage = noteStorage
-        self.noteMessages = noteMessages
-    }
-    
-    func createNewNote(withText text: String) {
-        noteStorage.createNewNote(withText: text) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success:
-                self.successCompletion?(self.noteMessages.createNewNoteWithSuccessMessage)
-            case .failure:
-                self.failureCompletion?(self.noteMessages.createNewNoteErrorMessage)
-            }
-        }
-    }
-}
-
-final class AlpacaNoteTests: XCTestCase {
+final class NoteManagerTests: XCTestCase {
     
     func test_createNewNote_shouldCallSuccessCompletion_whenCreatedWithSuccess() {
         let noteMessagesMock = NoteMessagesMock()
