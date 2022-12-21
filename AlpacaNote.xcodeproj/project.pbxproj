@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4D8298295009FE005426B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */; };
 		9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; };
 		9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DAC1654292F02EE0093520F /* AlpacaNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1653292F02EE0093520F /* AlpacaNoteApp.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAC1650292F02EE0093520F /* AlpacaNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlpacaNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAC1653292F02EE0093520F /* AlpacaNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaNoteApp.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				9DAC1657292F02EF0093520F /* Assets.xcassets */,
 				9DAC1659292F02EF0093520F /* AlpacaNote.entitlements */,
 				9DAC165A292F02EF0093520F /* Preview Content */,
+				9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */,
 			);
 			path = AlpacaNote;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4D8298295009FE005426B9 /* LaunchScreen.storyboard in Resources */,
 				9DAC165C292F02EF0093520F /* Preview Assets.xcassets in Resources */,
 				9DAC1658292F02EF0093520F /* Assets.xcassets in Resources */,
 			);
@@ -447,6 +451,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -483,6 +488,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
