@@ -14,10 +14,10 @@ steps:
   displayName: "Build"
   inputs:
     actions: 'build'
-    scheme: 'AlpacaNote'
+    scheme: 'AlpacaNoteFramework'
     sdk: 'iphoneos'
     configuration: 'Debug'
-    xcWorkspacePath: 'AlpacaNote.xcodeproj'
+    xcWorkspacePath: 'AlpacaNoteFramework/AlpacaNoteFramework.xcodeproj'
     xcodeVersion: 'default'
 
 - task: Xcode@5
