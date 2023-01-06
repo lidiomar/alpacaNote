@@ -16,5 +16,5 @@ steps:
     scheme: 'AlpacaNote'
     sdk: 'iphoneos'
     configuration: 'Release'
-    xcWorkspacePath: '**/*.xcworkspace'
+    xcWorkspacePath: 'AlpacaNote.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
