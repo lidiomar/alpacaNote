@@ -16,6 +16,16 @@ steps:
     actions: 'build'
     scheme: 'AlpacaNote'
     sdk: 'iphoneos'
-    configuration: 'Release'
-    xcWorkspacePath: 'AlpacaNote.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+    configuration: 'Debug'
+    xcWorkspacePath: 'AlpacaNote.xcodeproj'
+    xcodeVersion: 'default'
+
+- task: Xcode@5
+  displayName: "Test Framework"
+  inputs:
+    actions: 'test'
+    scheme: 'AlpacaNoteFramework'
+    sdk: 'iphoneos'
+    configuration: 'Debug'
+    xcWorkspacePath: 'AlpacaNoteFramework/AlpacaNoteFramework.xcodeproj'
+    xcodeVersion: 'default'
