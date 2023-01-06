@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: Xcode@5
+  displayName: "Build"
   inputs:
     actions: 'build'
     scheme: 'AlpacaNote'
