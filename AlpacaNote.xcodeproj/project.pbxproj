@@ -102,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				9DAC1652292F02EE0093520F /* AlpacaNote */,
-				9DAC1664292F02EF0093520F /* AlpacaNoteTests */,
 				9DAC166E292F02EF0093520F /* AlpacaNoteUITests */,
 				9DAC1651292F02EE0093520F /* Products */,
 				9D878E1C29418E9300D5DAD3 /* Frameworks */,
@@ -138,13 +137,6 @@
 				9DAC165B292F02EF0093520F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		9DAC1664292F02EF0093520F /* AlpacaNoteTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AlpacaNoteTests;
 			sourceTree = "<group>";
 		};
 		9DAC166E292F02EF0093520F /* AlpacaNoteUITests */ = {

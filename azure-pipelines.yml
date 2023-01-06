@@ -13,8 +13,8 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'build'
-    scheme: ''
+    scheme: 'AlpacaNote'
     sdk: 'iphoneos'
     configuration: 'Release'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
+    xcWorkspacePath: '**/*.xcworkspace'
+    xcodeVersion: '14.1' # Options: 8, 9, 10, 11, 12, default, specifyPath
