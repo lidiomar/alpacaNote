@@ -7,6 +7,8 @@
 
 import Foundation
 
-protocol NoteStorage {
-    func createNewNote(withText text: String, completion: @escaping (Result<Void, Error>) -> Void)
+public protocol NoteStorage {
+    func deleteNote(byId id: UUID) throws
+    func storeNewNote(_ note: Note) throws
+    func retrieveNotes() throws -> [Note]?
 }

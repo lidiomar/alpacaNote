@@ -20,6 +20,20 @@
                ReferencedContainer = "container:AlpacaNoteFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9D878E0929418D3B00D5DAD3"
+               BuildableName = "AlpacaNoteFrameworkTests.xctest"
+               BlueprintName = "AlpacaNoteFrameworkTests"
+               ReferencedContainer = "container:AlpacaNoteFramework.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

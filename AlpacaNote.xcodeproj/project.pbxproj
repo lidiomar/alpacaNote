@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D426E4929A6EF31003AC259 /* AlpacaNoteCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */; };
+		9D426E4A29A6EF31003AC259 /* AlpacaNoteCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D4D8298295009FE005426B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */; };
 		9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; };
 		9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -43,6 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */,
+				9D426E4A29A6EF31003AC259 /* AlpacaNoteCoreData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAC1650292F02EE0093520F /* AlpacaNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlpacaNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */,
+				9D426E4929A6EF31003AC259 /* AlpacaNoteCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,7 @@
 		9D878E1C29418E9300D5DAD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */,
 				9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */,
 			);
 			name = Frameworks;
@@ -432,9 +438,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AlpacaNote/AlpacaNote.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AlpacaNote/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -455,6 +462,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -469,9 +477,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AlpacaNote/AlpacaNote.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AlpacaNote/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -492,6 +501,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
