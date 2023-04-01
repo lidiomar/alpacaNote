@@ -51,6 +51,43 @@ public extension NoteStorageSpecs where Self: XCTestCase {
         XCTAssertNil(insertionError, "Expected to override cache successfully", file: file, line: line)
     }
     
+    func assertThatDeleteDeliversNoErrorOnEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        
+        let deletionError = deleteCache(from: sut, byId: id)
+        
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed", file: file, line: line)
+    }
+    
+    func assertThatDeleteHasNoSideEffectsOnEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        deleteCache(from: sut, byId: id)
+        
+        expect(sut, toRetrieve: .success([]), file: file, line: line)
+    }
+    
+    func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        let deletionError = deleteCache(from: sut, byId: id)
+        
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed", file: file, line: line)
+    }
+    
+    func assertThatDeleteRemovesPreviouslyInsertedCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        deleteCache(from: sut, byId: id)
+        
+        expect(sut, toRetrieve: .success([]), file: file, line: line)
+    }
+    
     func expect(_ sut: NoteStorage, toRetrieve expectedResult: Result<[Note]?, Error>, file: StaticString = #filePath, line: UInt = #line) {
         let retrievedResult = Result { try sut.retrieveNotes() }
         
@@ -77,6 +114,16 @@ extension NoteStorageSpecs where Self: XCTestCase {
     func insert(_ note: Note, to sut: NoteStorage) -> Error? {
         do {
             try sut.storeNewNote(note)
+            return nil
+        } catch {
+            return error
+        }
+    }
+    
+    @discardableResult
+    func deleteCache(from sut: NoteStorage, byId id: UUID) -> Error? {
+        do {
+            try sut.deleteNote(byId: id)
             return nil
         } catch {
             return error

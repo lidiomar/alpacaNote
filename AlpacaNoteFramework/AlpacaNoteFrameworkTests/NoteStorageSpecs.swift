@@ -15,6 +15,11 @@ public protocol NoteStorageSpecs {
     
     func test_insertNotes_deliversNoErrorOnEmptyCache()
     func test_insertNotes_deliversNoErrorOnNonEmptyCache()
+    
+    func test_delete_deliversNoErrorOnEmptyCache()
+    func test_delete_hasNoSideEffectsOnEmptyCache()
+    func test_delete_deliversNoErrorOnNonEmptyCache()
+    func test_delete_removesPreviouslyInsertedCache()
 }
 
 protocol FailableRetrieveNoteStorageSpecs: NoteStorageSpecs {

@@ -10,7 +10,6 @@ import AlpacaNoteFramework
 import AlpacaNoteCoreData
 
 final class CoreDataNoteStorageTests: XCTestCase, NoteStorageSpecs {
-    
     func test_retrieveNotes_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         assertThatRetrieveNotesDeliversEmptyOnEmptyCache(on: sut)
@@ -44,6 +43,30 @@ final class CoreDataNoteStorageTests: XCTestCase, NoteStorageSpecs {
         let sut = makeSUT()
         
         assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
+    }
+    
+    func test_delete_deliversNoErrorOnEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnEmptyCache(on: sut)
+    }
+    
+    func test_delete_hasNoSideEffectsOnEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatDeleteHasNoSideEffectsOnEmptyCache(on: sut)
+    }
+    
+    func test_delete_deliversNoErrorOnNonEmptyCache() {
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnNonEmptyCache(on: sut)
+    }
+    
+    func test_delete_removesPreviouslyInsertedCache() {
+        let sut = makeSUT()
+        
+        assertThatDeleteRemovesPreviouslyInsertedCache(on: sut)
     }
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> NoteStorage {
