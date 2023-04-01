@@ -74,6 +74,7 @@ extension CoreDataNoteStorage: NoteStorage {
         try performSync { context in
             Result {
                 let noteCache = NoteCache(context: context)
+                noteCache.id = note.id
                 noteCache.noteTitle = note.title
                 noteCache.noteDescription = note.description
                 try context.save()

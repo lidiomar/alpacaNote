@@ -13,6 +13,44 @@ public extension NoteStorageSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success([]), file: file, line: line)
     }
     
+    func assertThatRetrieveHasNoSideEffectsOnEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        expect(sut, toRetrieveTwice: .success([]), file: file, line: line)
+    }
+    
+    func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let note = Note(id: UUID(), title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        expect(sut, toRetrieve: .success([note]), file: file, line: line)
+    }
+    
+    func assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        
+        let note = Note(id: UUID(), title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        expect(sut, toRetrieveTwice: .success([note]), file: file, line: line)
+    }
+    
+    func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        
+        let note = Note(id: UUID(), title: "A title", description: "A description")
+        let insertionError = insert(note, to: sut)
+        
+        XCTAssertNil(insertionError, "Expected to insert cache successfully", file: file, line: line)
+    }
+    
+    func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        
+        let note = Note(id: UUID(), title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        let anotherNote = Note(id: UUID(), title: "Another title", description: "Another description")
+        let insertionError = insert(anotherNote, to: sut)
+        
+        XCTAssertNil(insertionError, "Expected to override cache successfully", file: file, line: line)
+    }
+    
     func expect(_ sut: NoteStorage, toRetrieve expectedResult: Result<[Note]?, Error>, file: StaticString = #filePath, line: UInt = #line) {
         let retrievedResult = Result { try sut.retrieveNotes() }
         
@@ -25,6 +63,23 @@ public extension NoteStorageSpecs where Self: XCTestCase {
             XCTAssertEqual(retrieved, expected, file: file, line: line)
         default:
             XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+        }
+    }
+    
+    func expect(_ sut: NoteStorage, toRetrieveTwice expectedResult: Result<[Note]?, Error>, file: StaticString = #filePath, line: UInt = #line) {
+        expect(sut, toRetrieve: expectedResult, file: file, line: line)
+        expect(sut, toRetrieve: expectedResult, file: file, line: line)
+    }
+}
+
+extension NoteStorageSpecs where Self: XCTestCase {
+    @discardableResult
+    func insert(_ note: Note, to sut: NoteStorage) -> Error? {
+        do {
+            try sut.storeNewNote(note)
+            return nil
+        } catch {
+            return error
         }
     }
 }
