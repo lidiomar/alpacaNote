@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D426E4929A6EF31003AC259 /* AlpacaNoteCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */; };
-		9D426E4A29A6EF31003AC259 /* AlpacaNoteCoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D4D8298295009FE005426B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4D8297295009FE005426B9 /* LaunchScreen.storyboard */; };
 		9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; };
 		9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -18,6 +16,8 @@
 		9DAC165C292F02EF0093520F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC165B292F02EF0093520F /* Preview Assets.xcassets */; };
 		9DAC1670292F02EF0093520F /* AlpacaNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC166F292F02EF0093520F /* AlpacaNoteUITests.swift */; };
 		9DAC1672292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1671292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift */; };
+		9DBE76D329D89A3A00507ECE /* AlpacaNoteStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */; };
+		9DBE76D429D89A3A00507ECE /* AlpacaNoteStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +44,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9DBE76D429D89A3A00507ECE /* AlpacaNoteStorage.framework in Embed Frameworks */,
 				9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */,
-				9D426E4A29A6EF31003AC259 /* AlpacaNoteCoreData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +66,7 @@
 		9DAC166B292F02EF0093520F /* AlpacaNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlpacaNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAC166F292F02EF0093520F /* AlpacaNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaNoteUITests.swift; sourceTree = "<group>"; };
 		9DAC1671292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBE76D329D89A3A00507ECE /* AlpacaNoteStorage.framework in Frameworks */,
 				9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */,
-				9D426E4929A6EF31003AC259 /* AlpacaNoteCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +99,7 @@
 		9D878E1C29418E9300D5DAD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */,
 				9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */,
 				9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */,
 			);

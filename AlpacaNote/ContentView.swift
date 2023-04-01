@@ -6,6 +6,14 @@
 //
 
 import SwiftUI
+import AlpacaNoteStorage
+
+class Bla {
+    func bla() {
+        let c = try! CoreDataNoteStorage(storeURL: URL(string: "http://bla")!)
+        _ = try! c.retrieveNotes()
+    }
+}
 
 struct ContentView: View {
     var body: some View {

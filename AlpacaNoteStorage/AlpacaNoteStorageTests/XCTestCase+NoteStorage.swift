@@ -7,6 +7,7 @@
 
 import Foundation
 import XCTest
+import AlpacaNoteFramework
 
 public extension NoteStorageSpecs where Self: XCTestCase {
     func assertThatRetrieveNotesDeliversEmptyOnEmptyCache(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {

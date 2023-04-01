@@ -7,49 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D04BE3F29BE743600F1B961 /* NoteStorageSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04BE3D29BE743600F1B961 /* NoteStorageSpecs.swift */; };
-		9D04BE4229BE748100F1B961 /* XCTestCase+NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04BE4029BE748100F1B961 /* XCTestCase+NoteStorage.swift */; };
-		9D04BE4529BE7AA100F1B961 /* NoteStorageSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04BE3D29BE743600F1B961 /* NoteStorageSpecs.swift */; };
-		9D04BE4629BE7AA400F1B961 /* XCTestCase+NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04BE4029BE748100F1B961 /* XCTestCase+NoteStorage.swift */; };
-		9D04BE4929BE7B3100F1B961 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D04BE4829BE7B3100F1B961 /* XCTest.framework */; };
 		9D426E1029A6E91E003AC259 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D426E0F29A6E91E003AC259 /* Note.swift */; };
 		9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */; };
 		9D878E1129418D3B00D5DAD3 /* AlpacaNoteFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9D878E0C29418D3B00D5DAD3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D878DF729418D3B00D5DAD3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D878DFF29418D3B00D5DAD3;
-			remoteInfo = AlpacaNoteFramework;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		9D04BE3D29BE743600F1B961 /* NoteStorageSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorageSpecs.swift; sourceTree = "<group>"; };
-		9D04BE4029BE748100F1B961 /* XCTestCase+NoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+NoteStorage.swift"; sourceTree = "<group>"; };
 		9D04BE4829BE7B3100F1B961 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9D426E0F29A6E91E003AC259 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlpacaNoteFramework.h; sourceTree = "<group>"; };
 		9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AlpacaNoteFramework.docc; sourceTree = "<group>"; };
-		9D878E0A29418D3B00D5DAD3 /* AlpacaNoteFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlpacaNoteFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9D878DFD29418D3B00D5DAD3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D04BE4929BE7B3100F1B961 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D878E0729418D3B00D5DAD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				9D878E0229418D3B00D5DAD3 /* AlpacaNoteFramework */,
-				9D878E0E29418D3B00D5DAD3 /* AlpacaNoteFrameworkTests */,
 				9D878E0129418D3B00D5DAD3 /* Products */,
 				9D04BE4729BE7B3100F1B961 /* Frameworks */,
 			);
@@ -89,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */,
-				9D878E0A29418D3B00D5DAD3 /* AlpacaNoteFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,15 +75,6 @@
 				9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */,
 			);
 			path = AlpacaNoteFramework;
-			sourceTree = "<group>";
-		};
-		9D878E0E29418D3B00D5DAD3 /* AlpacaNoteFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				9D04BE3D29BE743600F1B961 /* NoteStorageSpecs.swift */,
-				9D04BE4029BE748100F1B961 /* XCTestCase+NoteStorage.swift */,
-			);
-			path = AlpacaNoteFrameworkTests;
 			sourceTree = "<group>";
 		};
 		9D878E2129418ECB00D5DAD3 /* Storage */ = {
@@ -154,24 +117,6 @@
 			productReference = 9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9D878E0929418D3B00D5DAD3 /* AlpacaNoteFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9D878E1729418D3B00D5DAD3 /* Build configuration list for PBXNativeTarget "AlpacaNoteFrameworkTests" */;
-			buildPhases = (
-				9D878E0629418D3B00D5DAD3 /* Sources */,
-				9D878E0729418D3B00D5DAD3 /* Frameworks */,
-				9D878E0829418D3B00D5DAD3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9D878E0D29418D3B00D5DAD3 /* PBXTargetDependency */,
-			);
-			name = AlpacaNoteFrameworkTests;
-			productName = AlpacaNoteFrameworkTests;
-			productReference = 9D878E0A29418D3B00D5DAD3 /* AlpacaNoteFrameworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,10 +129,6 @@
 				TargetAttributes = {
 					9D878DFF29418D3B00D5DAD3 = {
 						CreatedOnToolsVersion = 14.1;
-					};
-					9D878E0929418D3B00D5DAD3 = {
-						CreatedOnToolsVersion = 14.1;
-						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -205,20 +146,12 @@
 			projectRoot = "";
 			targets = (
 				9D878DFF29418D3B00D5DAD3 /* AlpacaNoteFramework */,
-				9D878E0929418D3B00D5DAD3 /* AlpacaNoteFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9D878DFE29418D3B00D5DAD3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D878E0829418D3B00D5DAD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,30 +167,11 @@
 			files = (
 				9D426E1029A6E91E003AC259 /* Note.swift in Sources */,
 				9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */,
-				9D04BE4529BE7AA100F1B961 /* NoteStorageSpecs.swift in Sources */,
 				9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */,
-				9D04BE4629BE7AA400F1B961 /* XCTestCase+NoteStorage.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D878E0629418D3B00D5DAD3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D04BE4229BE748100F1B961 /* XCTestCase+NoteStorage.swift in Sources */,
-				9D04BE3F29BE743600F1B961 /* NoteStorageSpecs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9D878E0D29418D3B00D5DAD3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9D878DFF29418D3B00D5DAD3 /* AlpacaNoteFramework */;
-			targetProxy = 9D878E0C29418D3B00D5DAD3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9D878E1229418D3B00D5DAD3 /* Debug */ = {
@@ -443,59 +357,6 @@
 			};
 			name = Release;
 		};
-		9D878E1829418D3B00D5DAD3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.alpacanoteframeworktests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		9D878E1929418D3B00D5DAD3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.alpacanoteframeworktests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,15 +374,6 @@
 			buildConfigurations = (
 				9D878E1529418D3B00D5DAD3 /* Debug */,
 				9D878E1629418D3B00D5DAD3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9D878E1729418D3B00D5DAD3 /* Build configuration list for PBXNativeTarget "AlpacaNoteFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D878E1829418D3B00D5DAD3 /* Debug */,
-				9D878E1929418D3B00D5DAD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

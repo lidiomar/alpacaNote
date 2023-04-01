@@ -7,7 +7,7 @@
 
 import XCTest
 import AlpacaNoteFramework
-import AlpacaNoteCoreData
+import AlpacaNoteStorage
 
 final class CoreDataNoteStorageTests: XCTestCase, NoteStorageSpecs {
     func test_retrieveNotes_deliversEmptyOnEmptyCache() {
