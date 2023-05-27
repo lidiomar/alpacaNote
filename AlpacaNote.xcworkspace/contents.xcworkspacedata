@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AlpacaNoteStorage/AlpacaNoteStorage.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:AlpacaNoteFramework/AlpacaNoteFramework.xcodeproj">
    </FileRef>
    <FileRef

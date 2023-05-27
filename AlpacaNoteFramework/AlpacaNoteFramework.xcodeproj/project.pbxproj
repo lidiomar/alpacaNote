@@ -11,7 +11,25 @@
 		9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */; };
 		9D878E1129418D3B00D5DAD3 /* AlpacaNoteFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */; };
+		9DFC0EDC2A22606A00038C32 /* NoteStorageSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EDB2A22606A00038C32 /* NoteStorageSpecs.swift */; };
+		9DFC0EDD2A22606A00038C32 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */; };
+		9DFC0EE42A22608C00038C32 /* XCTestCase+NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EE32A22608C00038C32 /* XCTestCase+NoteStorage.swift */; };
+		9DFC0EEC2A22613A00038C32 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EE82A22610E00038C32 /* CoreDataHelpers.swift */; };
+		9DFC0EED2A22614500038C32 /* CoreDataNoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EEA2A22613300038C32 /* CoreDataNoteStorage.swift */; };
+		9DFC0EEF2A22617100038C32 /* NoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EEE2A22617100038C32 /* NoteCache.swift */; };
+		9DFC0EFD2A22633200038C32 /* CoreDataNoteStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFC0EFC2A22633200038C32 /* CoreDataNoteStorageTests.swift */; };
+		9DFC0EFE2A2263A500038C32 /* AlpacaNoteCoreDataModel.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 9DFC0EFA2A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DFC0EDE2A22606A00038C32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D878DF729418D3B00D5DAD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D878DFF29418D3B00D5DAD3;
+			remoteInfo = AlpacaNoteFramework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9D04BE4829BE7B3100F1B961 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -20,6 +38,14 @@
 		9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlpacaNoteFramework.h; sourceTree = "<group>"; };
 		9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AlpacaNoteFramework.docc; sourceTree = "<group>"; };
 		9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorage.swift; sourceTree = "<group>"; };
+		9DFC0ED92A22606A00038C32 /* AlpacaNoteFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlpacaNoteFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DFC0EDB2A22606A00038C32 /* NoteStorageSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStorageSpecs.swift; sourceTree = "<group>"; };
+		9DFC0EE32A22608C00038C32 /* XCTestCase+NoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+NoteStorage.swift"; sourceTree = "<group>"; };
+		9DFC0EE82A22610E00038C32 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		9DFC0EEA2A22613300038C32 /* CoreDataNoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNoteStorage.swift; sourceTree = "<group>"; };
+		9DFC0EEE2A22617100038C32 /* NoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCache.swift; sourceTree = "<group>"; };
+		9DFC0EF92A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlpacaNoteCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		9DFC0EFC2A22633200038C32 /* CoreDataNoteStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataNoteStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +53,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DFC0ED62A22606A00038C32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFC0EDD2A22606A00038C32 /* AlpacaNoteFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +86,9 @@
 		9D878DF629418D3B00D5DAD3 = {
 			isa = PBXGroup;
 			children = (
+				9DFC0EE52A2260A900038C32 /* AlpacaNoteStorage */,
 				9D878E0229418D3B00D5DAD3 /* AlpacaNoteFramework */,
+				9DFC0EDA2A22606A00038C32 /* AlpacaNoteFrameworkTests */,
 				9D878E0129418D3B00D5DAD3 /* Products */,
 				9D04BE4729BE7B3100F1B961 /* Frameworks */,
 			);
@@ -62,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */,
+				9DFC0ED92A22606A00038C32 /* AlpacaNoteFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +120,51 @@
 				9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		9DFC0EDA2A22606A00038C32 /* AlpacaNoteFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DFC0EE62A2260B900038C32 /* AlpacaNoteStorage */,
+			);
+			path = AlpacaNoteFrameworkTests;
+			sourceTree = "<group>";
+		};
+		9DFC0EE52A2260A900038C32 /* AlpacaNoteStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9DFC0EE72A2260F200038C32 /* AlpacaNoteCoreData */,
+			);
+			path = AlpacaNoteStorage;
+			sourceTree = "<group>";
+		};
+		9DFC0EE62A2260B900038C32 /* AlpacaNoteStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9DFC0EFB2A22631B00038C32 /* AlpacaNoteCoreData */,
+				9DFC0EE32A22608C00038C32 /* XCTestCase+NoteStorage.swift */,
+				9DFC0EDB2A22606A00038C32 /* NoteStorageSpecs.swift */,
+			);
+			path = AlpacaNoteStorage;
+			sourceTree = "<group>";
+		};
+		9DFC0EE72A2260F200038C32 /* AlpacaNoteCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9DFC0EE82A22610E00038C32 /* CoreDataHelpers.swift */,
+				9DFC0EEA2A22613300038C32 /* CoreDataNoteStorage.swift */,
+				9DFC0EEE2A22617100038C32 /* NoteCache.swift */,
+				9DFC0EFA2A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodeld */,
+			);
+			path = AlpacaNoteCoreData;
+			sourceTree = "<group>";
+		};
+		9DFC0EFB2A22631B00038C32 /* AlpacaNoteCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9DFC0EFC2A22633200038C32 /* CoreDataNoteStorageTests.swift */,
+			);
+			path = AlpacaNoteCoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +199,24 @@
 			productReference = 9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		9DFC0ED82A22606A00038C32 /* AlpacaNoteFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DFC0EE22A22606A00038C32 /* Build configuration list for PBXNativeTarget "AlpacaNoteFrameworkTests" */;
+			buildPhases = (
+				9DFC0ED52A22606A00038C32 /* Sources */,
+				9DFC0ED62A22606A00038C32 /* Frameworks */,
+				9DFC0ED72A22606A00038C32 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DFC0EDF2A22606A00038C32 /* PBXTargetDependency */,
+			);
+			name = AlpacaNoteFrameworkTests;
+			productName = AlpacaNoteFrameworkTests;
+			productReference = 9DFC0ED92A22606A00038C32 /* AlpacaNoteFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,6 +228,9 @@
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					9D878DFF29418D3B00D5DAD3 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					9DFC0ED82A22606A00038C32 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -146,12 +249,21 @@
 			projectRoot = "";
 			targets = (
 				9D878DFF29418D3B00D5DAD3 /* AlpacaNoteFramework */,
+				9DFC0ED82A22606A00038C32 /* AlpacaNoteFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9D878DFE29418D3B00D5DAD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFC0EFE2A2263A500038C32 /* AlpacaNoteCoreDataModel.xcdatamodeld in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DFC0ED72A22606A00038C32 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,13 +277,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFC0EED2A22614500038C32 /* CoreDataNoteStorage.swift in Sources */,
+				9DFC0EEF2A22617100038C32 /* NoteCache.swift in Sources */,
 				9D426E1029A6E91E003AC259 /* Note.swift in Sources */,
 				9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */,
+				9DFC0EEC2A22613A00038C32 /* CoreDataHelpers.swift in Sources */,
 				9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DFC0ED52A22606A00038C32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFC0EDC2A22606A00038C32 /* NoteStorageSpecs.swift in Sources */,
+				9DFC0EE42A22608C00038C32 /* XCTestCase+NoteStorage.swift in Sources */,
+				9DFC0EFD2A22633200038C32 /* CoreDataNoteStorageTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DFC0EDF2A22606A00038C32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D878DFF29418D3B00D5DAD3 /* AlpacaNoteFramework */;
+			targetProxy = 9DFC0EDE2A22606A00038C32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9D878E1229418D3B00D5DAD3 /* Debug */ = {
@@ -357,6 +490,44 @@
 			};
 			name = Release;
 		};
+		9DFC0EE02A22606A00038C32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.AlpacaNoteFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DFC0EE12A22606A00038C32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.AlpacaNoteFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -378,7 +549,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9DFC0EE22A22606A00038C32 /* Build configuration list for PBXNativeTarget "AlpacaNoteFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DFC0EE02A22606A00038C32 /* Debug */,
+				9DFC0EE12A22606A00038C32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9DFC0EFA2A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9DFC0EF92A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 9DFC0EF92A22629C00038C32 /* AlpacaNoteCoreDataModel.xcdatamodel */;
+			path = AlpacaNoteCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D878DF729418D3B00D5DAD3 /* Project object */;
 }

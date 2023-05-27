@@ -15,8 +15,6 @@
 		9DAC165C292F02EF0093520F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC165B292F02EF0093520F /* Preview Assets.xcassets */; };
 		9DAC1670292F02EF0093520F /* AlpacaNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC166F292F02EF0093520F /* AlpacaNoteUITests.swift */; };
 		9DAC1672292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1671292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift */; };
-		9DBE76D329D89A3A00507ECE /* AlpacaNoteStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */; };
-		9DBE76D429D89A3A00507ECE /* AlpacaNoteStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9DBE76D429D89A3A00507ECE /* AlpacaNoteStorage.framework in Embed Frameworks */,
 				9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -73,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DBE76D329D89A3A00507ECE /* AlpacaNoteStorage.framework in Frameworks */,
 				9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

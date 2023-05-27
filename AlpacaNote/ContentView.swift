@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import AlpacaNoteStorage
+import AlpacaNoteFramework
 
 class Bla {
     func bla() {
