@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; };
 		9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D89FDE32A228B5A00F8DD12 /* NotesListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */; };
+		9D89FDE62A228C1600F8DD12 /* NotesModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89FDE52A228C1600F8DD12 /* NotesModelData.swift */; };
+		9D89FDE82A228D4800F8DD12 /* NotesListContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89FDE72A228D4800F8DD12 /* NotesListContentRow.swift */; };
+		9D89FDEA2A22B1F800F8DD12 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89FDE92A22B1F800F8DD12 /* Note.swift */; };
 		9DAC1654292F02EE0093520F /* AlpacaNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1653292F02EE0093520F /* AlpacaNoteApp.swift */; };
 		9DAC1656292F02EE0093520F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1655292F02EE0093520F /* ContentView.swift */; };
 		9DAC1658292F02EF0093520F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DAC1657292F02EF0093520F /* Assets.xcassets */; };
@@ -51,6 +55,10 @@
 /* Begin PBXFileReference section */
 		9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContent.swift; sourceTree = "<group>"; };
+		9D89FDE52A228C1600F8DD12 /* NotesModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModelData.swift; sourceTree = "<group>"; };
+		9D89FDE72A228D4800F8DD12 /* NotesListContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentRow.swift; sourceTree = "<group>"; };
+		9D89FDE92A22B1F800F8DD12 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		9DAC1650292F02EE0093520F /* AlpacaNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlpacaNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAC1653292F02EE0093520F /* AlpacaNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaNoteApp.swift; sourceTree = "<group>"; };
 		9DAC1655292F02EE0093520F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +109,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D89FDE12A228B3B00F8DD12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */,
+				9D89FDE72A228D4800F8DD12 /* NotesListContentRow.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D89FDE42A228BFB00F8DD12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D89FDE52A228C1600F8DD12 /* NotesModelData.swift */,
+				9D89FDE92A22B1F800F8DD12 /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9DAC1647292F02EE0093520F = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +150,8 @@
 		9DAC1652292F02EE0093520F /* AlpacaNote */ = {
 			isa = PBXGroup;
 			children = (
+				9D89FDE42A228BFB00F8DD12 /* Model */,
+				9D89FDE12A228B3B00F8DD12 /* View */,
 				9DF8827A29D90D45004F3040 /* Info.plist */,
 				9DAC1653292F02EE0093520F /* AlpacaNoteApp.swift */,
 				9DAC1655292F02EE0093520F /* ContentView.swift */,
@@ -283,7 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DAC1656292F02EE0093520F /* ContentView.swift in Sources */,
+				9D89FDE82A228D4800F8DD12 /* NotesListContentRow.swift in Sources */,
 				9DAC1654292F02EE0093520F /* AlpacaNoteApp.swift in Sources */,
+				9D89FDE32A228B5A00F8DD12 /* NotesListContent.swift in Sources */,
+				9D89FDE62A228C1600F8DD12 /* NotesModelData.swift in Sources */,
+				9D89FDEA2A22B1F800F8DD12 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
