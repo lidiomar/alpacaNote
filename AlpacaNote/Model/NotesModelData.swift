@@ -22,6 +22,7 @@ final class NotesModelData: ObservableObject {
         Note(id: UUID(), title: "Note 10", description: "Description 10"),
         Note(id: UUID(), title: "Note 11", description: "Description 11"),
         Note(id: UUID(), title: "Note 12", description: "Description 12")
-        
     ]
+    
+    @Published var emptyData: [Note] = []
 }
