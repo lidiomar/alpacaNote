@@ -10,18 +10,12 @@ import AlpacaNoteFramework
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Bla")
-        }
-        .padding()
+        NotesListContent()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(NotesModelData())
     }
 }

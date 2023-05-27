@@ -10,7 +10,7 @@ import SwiftUI
 struct NotesListContent: View {
     @EnvironmentObject var notesModelData: NotesModelData
     
-    init() {}
+    //init() {}
     
     var body: some View {
         NavigationView {

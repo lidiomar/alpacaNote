@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct AlpacaNoteApp: App {
+    @StateObject private var notesModelData = NotesModelData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(notesModelData)
         }
     }
 }
