@@ -8,30 +8,26 @@
 import SwiftUI
 
 struct NotesListContent: View {
-    @EnvironmentObject var notesModelData: NotesModelData
-    
+    @ObservedObject var content: NoteContent
+
     var body: some View {
         NavigationView {
-            if notesModelData.notes.count > 0 {
-                List {
-                    ForEach(notesModelData.notes) { note in
-                    label: do {
-                            NotesListContentRow(note: note)
-                        }
+            List {
+                ForEach(content.notes) { note in
+                label: do {
+                        NotesListContentRow(note: note)
                     }
                 }
-                .listStyle(PlainListStyle())
-                .padding(.top, 20)
-                .navigationBarTitle("Notes")
-            } else {
-                NoContent().navigationTitle("Notes")
             }
+            .listStyle(PlainListStyle())
+            .padding(.top, 20)
+            .navigationBarTitle("Notes")
         }
     }
 }
 
 struct NotesListContent_Previews: PreviewProvider {
     static var previews: some View {
-        NotesListContent().environmentObject(NotesModelData())
+        NotesListContent(content: NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")]))
     }
 }

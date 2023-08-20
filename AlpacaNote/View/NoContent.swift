@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NoContent: View {
-    @EnvironmentObject var notesModelData: NotesModelData
+    @EnvironmentObject var notesModelData: NotesListContentViewModelImpl
     
     var body: some View {
         VStack(alignment: .center) {

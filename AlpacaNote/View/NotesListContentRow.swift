@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AlpacaNoteFramework
 
 struct NotesListContentRow: View {
     var note: Note
@@ -20,10 +19,8 @@ struct NotesListContentRow: View {
 }
 
 struct LandmarkRow_Previews: PreviewProvider {
-    static var notesModelData = NotesModelData()
-
     static var previews: some View {
-        NotesListContentRow(note: notesModelData.notes[0])
+        NotesListContentRow(note: Note(id: UUID(), title: "Title", description: "Description"))
     }
 }
 
