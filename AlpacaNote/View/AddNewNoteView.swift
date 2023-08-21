@@ -24,13 +24,13 @@ struct AddNewNoteView: View {
     @State private var noteDescription: String = ""
     
     var body: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
+            VStack(alignment: .center, spacing: 16) {
+                VStack(alignment: .leading) {
                     Text("Title:")
                     TextField("", text: $noteTitle).textFieldStyle(.roundedBorder)
                 }
-                VStack(alignment: .center) {
-                    Text("Description")
+                VStack(alignment: .leading) {
+                    Text("Description:")
                     VStack {
                         TextEditor(text: $noteDescription)
                             .background(Color.primary.colorInvert())
@@ -40,11 +40,14 @@ struct AddNewNoteView: View {
                                     .stroke(.black, lineWidth: 1 / 3)
                                     .opacity(0.3))
                     }
-                    Button("Save") {
-                        print("save")
-                    }.buttonStyle(GrowingButtonB())
-                    Spacer()
                 }
+                Spacer()
+                Button {
+                    print("save")
+                } label: {
+                    Text("Save").frame(maxWidth: .infinity)
+                }
+                .buttonStyle(GrowingButtonB()).padding(.horizontal, 32)
             }
             .navigationBarTitle("Add a new note", displayMode: .inline)
             .frame(maxWidth: .infinity, alignment: .leading)
