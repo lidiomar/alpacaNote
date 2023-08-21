@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "04215A87-A226-4CB4-A6E9-4919944DB49A"
-            shouldBeEnabled = "Yes"
+            uuid = "165044D4-B39B-4D48-B7B2-5E37C1182675"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AlpacaNote/ViewModel/NotesListContentViewModelImpl.swift"
+            filePath = "AlpacaNote/View/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "fetchNotes()"
-            landmarkType = "7">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "165044D4-B39B-4D48-B7B2-5E37C1182675 - 692109aff98ad5ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle(_: SwiftUI.LocalizedStringKey, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in AlpacaNote.ContentView.body.getter : some"
+                  moduleName = "AlpacaNote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidiomarfernandomachado/dev/alpacaNote/AlpacaNote/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "165044D4-B39B-4D48-B7B2-5E37C1182675 - 8248075b157520df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;AlpacaNote.NotesListContent, AlpacaNote.NoContent&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI.Text&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitle(_: SwiftUI.LocalizedStringKey, displayMode: SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in AlpacaNote.ContentView.body.getter : some"
+                  moduleName = "AlpacaNote"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidiomarfernandomachado/dev/alpacaNote/AlpacaNote/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "268">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,18 +11,15 @@ struct NotesListContent: View {
     @ObservedObject var content: NoteContent
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(content.notes) { note in
-                label: do {
-                        NotesListContentRow(note: note)
-                    }
+        List {
+            ForEach(content.notes) { note in
+            label: do {
+                    NotesListContentRow(note: note)
                 }
             }
-            .listStyle(PlainListStyle())
-            .padding(.top, 20)
-            .navigationBarTitle("Notes")
         }
+        .listStyle(PlainListStyle())
+        .padding(.top, 20)
     }
 }
 

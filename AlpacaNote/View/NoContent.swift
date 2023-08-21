@@ -12,7 +12,7 @@ struct NoContent: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Your note list is empty.")
+            Text("Your list is empty.")
         }
     }
 }
