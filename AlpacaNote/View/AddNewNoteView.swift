@@ -7,52 +7,71 @@
 
 import SwiftUI
 
-struct GrowingButtonB: ButtonStyle {
+struct AddNewNoteView: View {
+    @State private var noteTitle = ""
+    @State private var noteDescription = ""
+    @State private var isSaveButtonDisabled = true
+    
+    var body: some View {
+        return VStack(alignment: .center, spacing: 16) {
+            VStack(alignment: .leading) {
+                Text("Title:")
+                TextField("", text: $noteTitle).textFieldStyle(.roundedBorder)
+            }
+            VStack(alignment: .leading) {
+                Text("Description:")
+                VStack {
+                    TextEditor(text: $noteDescription)
+                        .background(Color.primary.colorInvert())
+                        .cornerRadius(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black, lineWidth: 1 / 3)
+                                .opacity(0.3))
+                }
+            }
+            Spacer()
+            SaveButton(isSaveButtonDisabled: $isSaveButtonDisabled)
+        }.onChange(of: noteTitle) { _ in
+            shouldDisableSaveButton()
+        }.onChange(of: noteDescription) { _ in
+            shouldDisableSaveButton()
+        }
+        .navigationBarTitle("Add a new note", displayMode: .inline)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+    }
+    
+    private func shouldDisableSaveButton() {
+        isSaveButtonDisabled = noteTitle.isEmpty || noteDescription.isEmpty
+    }
+}
+
+struct SaveButton: View {
+    @Binding var isSaveButtonDisabled: Bool
+    @State var buttonColor: Color = .gray
+    var body: some View {
+        Button {
+            print("Save")
+        } label: {
+            Text("Save").frame(maxWidth: .infinity)
+        }
+        .buttonStyle(GrowingButtonSave(isSaveButtonDisabled: isSaveButtonDisabled))
+        .padding(.horizontal, 32)
+        .disabled(isSaveButtonDisabled)
+    }
+}
+
+struct GrowingButtonSave: ButtonStyle {
+    var isSaveButtonDisabled: Bool
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(.blue)
+            .background(isSaveButtonDisabled ? .gray : .blue)
             .foregroundStyle(.white)
             .clipShape(Capsule())
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
-    }
-}
-
-struct AddNewNoteView: View {
-    @State private var noteTitle: String = ""
-    @State private var noteDescription: String = ""
-    
-    var body: some View {
-            VStack(alignment: .center, spacing: 16) {
-                VStack(alignment: .leading) {
-                    Text("Title:")
-                    TextField("", text: $noteTitle).textFieldStyle(.roundedBorder)
-                }
-                VStack(alignment: .leading) {
-                    Text("Description:")
-                    VStack {
-                        TextEditor(text: $noteDescription)
-                            .background(Color.primary.colorInvert())
-                            .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(.black, lineWidth: 1 / 3)
-                                    .opacity(0.3))
-                    }
-                }
-                Spacer()
-                Button {
-                    print("save")
-                } label: {
-                    Text("Save").frame(maxWidth: .infinity)
-                }
-                .buttonStyle(GrowingButtonB()).padding(.horizontal, 32)
-            }
-            .navigationBarTitle("Add a new note", displayMode: .inline)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
-        
     }
 }
 
