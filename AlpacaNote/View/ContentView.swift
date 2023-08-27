@@ -37,7 +37,10 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }
             }
             .toolbar {
-                NavigationLink(destination: AddNewNoteView(saveNoteViewModel: saveNoteViewModel(), isShowing: $isShowingDetail), isActive: $isShowingDetail) {
+                NavigationLink(destination: AddNewNoteView(saveNoteViewModel: saveNoteViewModel(),
+                                                           notesListContentViewModel: viewModel,
+                                                           isShowing: $isShowingDetail),
+                               isActive: $isShowingDetail) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
@@ -48,7 +51,7 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
         }
     }
     
-    // TODO: Change the view model creation location
+    // TODO: Change the location of view model creation
     func saveNoteViewModel() -> SaveNoteViewModelImpl {
         var storage: NoteStorage
         do {
