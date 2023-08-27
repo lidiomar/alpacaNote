@@ -9,16 +9,7 @@ import SwiftUI
 import AlpacaNoteFramework
 import CoreData
 
-class NullStorage: NoteStorage {
-    func deleteNote(byId id: UUID) throws {}
-    
-    func storeNewNote(_ note: AlpacaNoteFramework.Note) throws {}
-    
-    func retrieveNotes() throws -> [AlpacaNoteFramework.Note]? {
-        return nil
-    }
-}
-
+// TODO: Extract the NotesListContentViewModelImpl creation
 @main
 struct AlpacaNoteApp: App {
     private var notesViewModel: NotesListContentViewModelImpl {

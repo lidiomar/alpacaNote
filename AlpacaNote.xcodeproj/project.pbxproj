@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9D4C31442A32430100B60A60 /* NotesListContentViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */; };
+		9D78AEE42A9AB59C003E5858 /* SaveNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE32A9AB59C003E5858 /* SaveNoteViewModel.swift */; };
+		9D78AEE62A9AB5DE003E5858 /* SaveNoteViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModelImpl.swift */; };
+		9D78AEE82A9AB756003E5858 /* SaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE72A9AB756003E5858 /* SaveState.swift */; };
+		9D78AEEA2A9AC9B4003E5858 /* NullStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE92A9AC9B4003E5858 /* NullStorage.swift */; };
+		9D78AEEC2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEEB2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift */; };
 		9D878E1E29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; };
 		9D878E1F29418E9300D5DAD3 /* AlpacaNoteFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9D89FDE32A228B5A00F8DD12 /* NotesListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */; };
@@ -60,6 +65,11 @@
 /* Begin PBXFileReference section */
 		9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentViewModelImpl.swift; sourceTree = "<group>"; };
+		9D78AEE32A9AB59C003E5858 /* SaveNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteViewModel.swift; sourceTree = "<group>"; };
+		9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteViewModelImpl.swift; sourceTree = "<group>"; };
+		9D78AEE72A9AB756003E5858 /* SaveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveState.swift; sourceTree = "<group>"; };
+		9D78AEE92A9AC9B4003E5858 /* NullStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStorage.swift; sourceTree = "<group>"; };
+		9D78AEEB2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteViewModelPreview.swift; sourceTree = "<group>"; };
 		9D878E1D29418E9300D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContent.swift; sourceTree = "<group>"; };
 		9D89FDE52A228C1600F8DD12 /* NotesListContentViewModelPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentViewModelPreview.swift; sourceTree = "<group>"; };
@@ -116,6 +126,10 @@
 				9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */,
 				9D89FDE52A228C1600F8DD12 /* NotesListContentViewModelPreview.swift */,
 				9DE557F92A927C4F0029CF19 /* NoteListLoadingState.swift */,
+				9D78AEE32A9AB59C003E5858 /* SaveNoteViewModel.swift */,
+				9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModelImpl.swift */,
+				9D78AEEB2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift */,
+				9D78AEE72A9AB756003E5858 /* SaveState.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +195,7 @@
 				9DAC1657292F02EF0093520F /* Assets.xcassets */,
 				9DAC1659292F02EF0093520F /* AlpacaNote.entitlements */,
 				9DAC165A292F02EF0093520F /* Preview Content */,
+				9D78AEE92A9AC9B4003E5858 /* NullStorage.swift */,
 			);
 			path = AlpacaNote;
 			sourceTree = "<group>";
@@ -337,12 +352,17 @@
 				9DAC1656292F02EE0093520F /* ContentView.swift in Sources */,
 				9D89FDE82A228D4800F8DD12 /* NotesListContentRow.swift in Sources */,
 				9D89FDEC2A22BFBE00F8DD12 /* NoContent.swift in Sources */,
+				9D78AEE62A9AB5DE003E5858 /* SaveNoteViewModelImpl.swift in Sources */,
 				9DAC1654292F02EE0093520F /* AlpacaNoteApp.swift in Sources */,
 				9DE4DAC42A6882BF00E3813F /* NotesListContentViewModel.swift in Sources */,
 				9D89FDE32A228B5A00F8DD12 /* NotesListContent.swift in Sources */,
 				9D89FDE62A228C1600F8DD12 /* NotesListContentViewModelPreview.swift in Sources */,
+				9D78AEE42A9AB59C003E5858 /* SaveNoteViewModel.swift in Sources */,
+				9D78AEEA2A9AC9B4003E5858 /* NullStorage.swift in Sources */,
 				9D4C31442A32430100B60A60 /* NotesListContentViewModelImpl.swift in Sources */,
+				9D78AEEC2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift in Sources */,
 				9D89FDEA2A22B1F800F8DD12 /* Note.swift in Sources */,
+				9D78AEE82A9AB756003E5858 /* SaveState.swift in Sources */,
 				9DE557FE2A92B41B0029CF19 /* AddNewNoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

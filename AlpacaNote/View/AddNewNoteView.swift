@@ -7,13 +7,36 @@
 
 import SwiftUI
 
-struct AddNewNoteView: View {
+struct AddNewNoteView<T>: View where T: SaveNoteViewModel {
+    @ObservedObject var saveNoteViewModel: T
+    @Binding var isShowing: Bool
+    
+    var body: some View {
+        VStack {
+            switch saveNoteViewModel.state {
+            case .idle:
+                MainView(saveNoteViewModel: saveNoteViewModel)
+            case .success:
+                Text("Success").onAppear {
+                    isShowing = false
+                }
+            case .saving:
+                Text("Saving...")
+            case .error:
+                Text("Error :(")
+            }
+        }
+    }
+}
+
+struct MainView<T>: View where T: SaveNoteViewModel {
+    @ObservedObject var saveNoteViewModel: T
     @State private var noteTitle = ""
     @State private var noteDescription = ""
     @State private var isSaveButtonDisabled = true
     
     var body: some View {
-        return VStack(alignment: .center, spacing: 16) {
+        VStack(alignment: .center, spacing: 16) {
             VStack(alignment: .leading) {
                 Text("Title:")
                 TextField("", text: $noteTitle).textFieldStyle(.roundedBorder)
@@ -31,7 +54,9 @@ struct AddNewNoteView: View {
                 }
             }
             Spacer()
-            SaveButton(isSaveButtonDisabled: $isSaveButtonDisabled)
+            SaveButton(isSaveButtonDisabled: $isSaveButtonDisabled) {
+                saveNoteViewModel.save(note: Note(id: UUID(), title: noteTitle, description: noteDescription))
+            }
         }.onChange(of: noteTitle) { _ in
             shouldDisableSaveButton()
         }.onChange(of: noteDescription) { _ in
@@ -49,10 +74,11 @@ struct AddNewNoteView: View {
 
 struct SaveButton: View {
     @Binding var isSaveButtonDisabled: Bool
-    @State var buttonColor: Color = .gray
+    var action: () -> Void
+    
     var body: some View {
         Button {
-            print("Save")
+            action()
         } label: {
             Text("Save").frame(maxWidth: .infinity)
         }
@@ -77,6 +103,7 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewNoteView()
+        let isShowingDetail = Binding.constant(false)
+        AddNewNoteView(saveNoteViewModel: SaveNoteViewModelPreview(), isShowing: isShowingDetail)
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AlpacaNoteFramework
+import CoreData
 
 struct GrowingButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -19,6 +20,7 @@ struct GrowingButton: ButtonStyle {
 
 struct ContentView<T>: View where T: NotesListContentViewModel {
     @ObservedObject var viewModel: T
+    @State private var isShowingDetail = false
     
     var body: some View {
         NavigationView {
@@ -35,7 +37,7 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }
             }
             .toolbar {
-                NavigationLink(destination: AddNewNoteView()) {
+                NavigationLink(destination: AddNewNoteView(saveNoteViewModel: saveNoteViewModel(), isShowing: $isShowingDetail), isActive: $isShowingDetail) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
@@ -44,6 +46,17 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
         .task {
             viewModel.fetchNotes()
         }
+    }
+    
+    // TODO: Change the view model creation location
+    func saveNoteViewModel() -> SaveNoteViewModelImpl {
+        var storage: NoteStorage
+        do {
+            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
+        } catch {
+            storage = NullStorage()
+        }
+        return SaveNoteViewModelImpl(noteStorage: storage)
     }
 }
 
