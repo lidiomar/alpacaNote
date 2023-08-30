@@ -7,10 +7,10 @@
 
 import Foundation
 
-class SaveNoteViewModelPreview: SaveNoteViewModel {
+class SaveNoteViewModelPreview: ManageNoteViewModel {
     var state: ManageNoteState = .error
     
-    func save(note: Note) {
+    func manage(note: Note) {
         print("Save")
     }
 }

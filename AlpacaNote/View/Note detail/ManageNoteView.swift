@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ManageNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListContentViewModel {
+struct ManageNoteView<T, U>: View where T: ManageNoteViewModel, U: NotesListContentViewModel {
     @ObservedObject var saveNoteViewModel: T
     @EnvironmentObject var notesListContentViewModel: U
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -31,7 +31,7 @@ struct ManageNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListConten
     }
 }
 
-private struct MainView<T>: View where T: SaveNoteViewModel {
+private struct MainView<T>: View where T: ManageNoteViewModel {
     @ObservedObject var saveNoteViewModel: T
     @State private var noteTitle = ""
     @State private var noteDescription = ""
@@ -57,7 +57,7 @@ private struct MainView<T>: View where T: SaveNoteViewModel {
             }
             Spacer()
             SaveButton(isSaveButtonDisabled: $isSaveButtonDisabled) {
-                saveNoteViewModel.save(note: Note(id: UUID(), title: noteTitle, description: noteDescription))
+                saveNoteViewModel.manage(note: Note(id: UUID(), title: noteTitle, description: noteDescription))
             }
         }.onChange(of: noteTitle) { _ in
             shouldDisableSaveButton()

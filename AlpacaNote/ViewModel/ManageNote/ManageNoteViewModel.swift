@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SaveNoteViewModel: ObservableObject {
+protocol ManageNoteViewModel: ObservableObject {
     var state: ManageNoteState { get }
-    func save(note: Note)
+    func manage(note: Note)
 }

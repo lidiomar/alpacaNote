@@ -8,7 +8,7 @@
 import Foundation
 import AlpacaNoteFramework
 
-class SaveNoteViewModelImpl: SaveNoteViewModel {
+class SaveNoteViewModelImpl: ManageNoteViewModel {
     @Published var state: ManageNoteState = .idle
     private var noteStorage: NoteStorage
     
@@ -16,7 +16,7 @@ class SaveNoteViewModelImpl: SaveNoteViewModel {
         self.noteStorage = noteStorage
     }
     
-    func save(note: Note) {
+    func manage(note: Note) {
         state = .processing
         do {
             try noteStorage.storeNewNote(note.convert())
