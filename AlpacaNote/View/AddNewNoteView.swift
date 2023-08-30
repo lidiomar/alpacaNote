@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddNewNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListContentViewModel {
     @ObservedObject var saveNoteViewModel: T
-    @ObservedObject var notesListContentViewModel: U
-    @Binding var isShowing: Bool
+    @EnvironmentObject var notesListContentViewModel: U
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack {
@@ -20,7 +20,7 @@ struct AddNewNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListConten
             case .success:
                 Text("Success").onAppear {
                     notesListContentViewModel.fetchNotes()
-                    isShowing = false
+                    presentationMode.wrappedValue.dismiss()
                 }
             case .saving:
                 Text("Saving...")
@@ -105,9 +105,6 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        let isShowingDetail = Binding.constant(false)
-        AddNewNoteView(saveNoteViewModel: SaveNoteViewModelPreview(),
-                       notesListContentViewModel: NotesListContentViewModelPreview(),
-                       isShowing: isShowingDetail)
+        AddNewNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(saveNoteViewModel: SaveNoteViewModelPreview())
     }
 }

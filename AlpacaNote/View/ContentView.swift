@@ -19,13 +19,12 @@ struct GrowingButton: ButtonStyle {
 }
 
 struct ContentView<T>: View where T: NotesListContentViewModel {
-    @ObservedObject var viewModel: T
-    @State private var isShowingDetail = false
+    @EnvironmentObject var notesListContentViewModel: T
     
     var body: some View {
         NavigationView {
             VStack {
-                switch viewModel.state {
+                switch notesListContentViewModel.state {
                 case let .loaded(notes):
                     NotesListContent(content: NoteContent(notes: notes))
                 case .empty:
@@ -37,17 +36,14 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }
             }
             .toolbar {
-                NavigationLink(destination: AddNewNoteView(saveNoteViewModel: saveNoteViewModel(),
-                                                           notesListContentViewModel: viewModel,
-                                                           isShowing: $isShowingDetail),
-                               isActive: $isShowingDetail) {
+                NavigationLink(destination: AddNewNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl>(saveNoteViewModel: saveNoteViewModel())) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
             .navigationBarTitle("Notes", displayMode: .large)
         }
         .task {
-            viewModel.fetchNotes()
+            notesListContentViewModel.fetchNotes()
         }
     }
     
@@ -65,6 +61,6 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: NotesListContentViewModelPreview())
+        ContentView<NotesListContentViewModelPreview>().environmentObject(NotesListContentViewModelPreview())
     }
 }

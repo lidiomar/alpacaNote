@@ -24,7 +24,7 @@ struct AlpacaNoteApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: notesViewModel)
+            ContentView<NotesListContentViewModelImpl>().environmentObject(notesViewModel)
         }
     }
 }

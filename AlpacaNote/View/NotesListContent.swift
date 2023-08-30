@@ -6,20 +6,36 @@
 //
 
 import SwiftUI
+import AlpacaNoteFramework
+import CoreData
 
 struct NotesListContent: View {
     @ObservedObject var content: NoteContent
-
+    
     var body: some View {
         List {
             ForEach(content.notes) { note in
-            label: do {
-                    NotesListContentRow(note: note)
-                }
+                NavigationLink(destination: { addNewNoteView() },
+                               label: { NotesListContentRow(note: note) })
             }
         }
         .listStyle(PlainListStyle())
         .padding(.top, 20)
+    }
+    
+    private func addNewNoteView() -> AddNewNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl> {
+        return AddNewNoteView(saveNoteViewModel: saveNoteViewModel())
+    }
+    
+    // TODO: Change the location of view model creation
+    private func saveNoteViewModel() -> SaveNoteViewModelImpl {
+        var storage: NoteStorage
+        do {
+            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
+        } catch {
+            storage = NullStorage()
+        }
+        return SaveNoteViewModelImpl(noteStorage: storage)
     }
 }
 
