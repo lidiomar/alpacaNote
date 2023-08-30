@@ -11,4 +11,5 @@ public protocol NoteStorage {
     func deleteNote(byId id: UUID) throws
     func storeNewNote(_ note: Note) throws
     func retrieveNotes() throws -> [Note]?
+    func updateNote(_ note: Note) throws
 }

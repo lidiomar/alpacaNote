@@ -27,6 +27,16 @@ extension NoteCache {
         try note.map(viewContext.delete).map(viewContext.save)
     }
     
+    static func updateNote(viewContext: NSManagedObjectContext, id: UUID, noteTitle: String, noteDescription: String) throws {
+        guard let fetchedNote = try NoteCache.fecthNote(withId: id, viewContext: viewContext) else {
+            throw NSError(domain: "ID not found in the cache.", code: 0)
+        }
+        
+        fetchedNote.noteTitle = noteTitle
+        fetchedNote.noteDescription = noteDescription
+        try viewContext.save()
+    }
+    
     private static func fecthNote(withId id: UUID, viewContext: NSManagedObjectContext) throws -> NoteCache? {
         let request = NSFetchRequest<NoteCache>(entityName: "NoteCache")
         request.predicate = NSPredicate(format: "id == %@", id.uuidString)

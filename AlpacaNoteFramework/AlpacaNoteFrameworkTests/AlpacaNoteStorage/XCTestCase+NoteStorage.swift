@@ -88,6 +88,26 @@ public extension NoteStorageSpecs where Self: XCTestCase {
         
         expect(sut, toRetrieve: .success([]), file: file, line: line)
     }
+
+    func assertThatUpdateDeliversErrorOnNonExistentId(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        
+        let updateCacheError = updateCache(note, from: sut)
+        XCTAssertNotNil(updateCacheError, "Expected a update error when there is not the id to be update on the cache", file: file, line: line)
+    }
+    
+    func assertThatUpdateDeliversUpdatedNoteOnExistentId(on sut: NoteStorage, file: StaticString = #filePath, line: UInt = #line) {
+        let id = UUID()
+        let note = Note(id: id, title: "A title", description: "A description")
+        insert(note, to: sut)
+        
+        let updatedNote = Note(id: id, title: "An updated title", description: "An updated description")
+        updateCache(updatedNote, from: sut)
+        
+        expect(sut, toRetrieve: .success([updatedNote]), file: file, line: line)
+    }
+
     
     func expect(_ sut: NoteStorage, toRetrieve expectedResult: Result<[Note]?, Error>, file: StaticString = #filePath, line: UInt = #line) {
         let retrievedResult = Result { try sut.retrieveNotes() }
@@ -130,4 +150,15 @@ extension NoteStorageSpecs where Self: XCTestCase {
             return error
         }
     }
+    
+    @discardableResult
+    func updateCache(_ note: Note, from sut: NoteStorage) -> Error? {
+        do {
+            try sut.updateNote(note)
+            return nil
+        } catch {
+            return error
+        }
+    }
+    
 }

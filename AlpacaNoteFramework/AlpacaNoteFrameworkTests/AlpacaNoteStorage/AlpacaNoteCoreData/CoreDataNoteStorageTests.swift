@@ -68,6 +68,18 @@ final class CoreDataNoteStorageTests: XCTestCase, NoteStorageSpecs {
         assertThatDeleteRemovesPreviouslyInsertedCache(on: sut)
     }
     
+    func test_update_deliversErrorOnNonExistentId() {
+        let sut = makeSUT()
+        
+        assertThatUpdateDeliversErrorOnNonExistentId(on: sut)
+    }
+    
+    func test_update_deliversUpdatedNoteOnExistentId() {
+        let sut = makeSUT()
+        
+        assertThatUpdateDeliversUpdatedNoteOnExistentId(on: sut)
+    }
+    
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> NoteStorage {
         let storeURL = URL(fileURLWithPath: "/dev/null")
         let sut = try! CoreDataNoteStorage(storeURL: storeURL)

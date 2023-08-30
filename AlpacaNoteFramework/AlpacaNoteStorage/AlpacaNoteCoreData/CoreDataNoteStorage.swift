@@ -51,6 +51,7 @@ public final class CoreDataNoteStorage {
     }
 }
  
+// MARK: NoteStorage
 extension CoreDataNoteStorage: NoteStorage {
     public func deleteNote(byId id: UUID) throws {
         try performSync { context in
@@ -77,6 +78,14 @@ extension CoreDataNoteStorage: NoteStorage {
                 noteCache.noteTitle = note.title
                 noteCache.noteDescription = note.description
                 try context.save()
+            }
+        }
+    }
+    
+    public func updateNote(_ note: AlpacaNoteFramework.Note) throws {
+        try performSync { context in
+            Result {
+                try NoteCache.updateNote(viewContext: context, id: note.id, noteTitle: note.title, noteDescription: note.description)
             }
         }
     }
