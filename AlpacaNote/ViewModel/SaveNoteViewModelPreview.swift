@@ -8,7 +8,7 @@
 import Foundation
 
 class SaveNoteViewModelPreview: SaveNoteViewModel {
-    var state: SaveState = .error
+    var state: ManageNoteState = .error
     
     func save(note: Note) {
         print("Save")

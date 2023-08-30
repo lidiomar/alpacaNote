@@ -9,7 +9,7 @@ import Foundation
 import AlpacaNoteFramework
 
 class SaveNoteViewModelImpl: SaveNoteViewModel {
-    @Published var state: SaveState = .idle
+    @Published var state: ManageNoteState = .idle
     private var noteStorage: NoteStorage
     
     init(noteStorage: NoteStorage) {
@@ -17,7 +17,7 @@ class SaveNoteViewModelImpl: SaveNoteViewModel {
     }
     
     func save(note: Note) {
-        state = .saving
+        state = .processing
         do {
             try noteStorage.storeNewNote(note.convert())
             state = .success

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SaveNoteViewModel: ObservableObject {
-    var state: SaveState { get }
+    var state: ManageNoteState { get }
     func save(note: Note)
 }

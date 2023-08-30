@@ -22,7 +22,7 @@ struct ManageNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListConten
                     notesListContentViewModel.fetchNotes()
                     presentationMode.wrappedValue.dismiss()
                 }
-            case .saving:
+            case .processing:
                 Text("Saving...")
             case .error:
                 Text("Error :(")

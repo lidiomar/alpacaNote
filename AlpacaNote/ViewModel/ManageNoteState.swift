@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum SaveState {
+enum ManageNoteState {
     case idle
-    case saving
+    case processing
     case success
     case error
 }
