@@ -36,7 +36,7 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }
             }
             .toolbar {
-                NavigationLink(destination: AddNewNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl>(saveNoteViewModel: saveNoteViewModel())) {
+                NavigationLink(destination: ManageNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl>(saveNoteViewModel: saveNoteViewModel())) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }

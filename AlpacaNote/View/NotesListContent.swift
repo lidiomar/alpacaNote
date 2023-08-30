@@ -23,8 +23,8 @@ struct NotesListContent: View {
         .padding(.top, 20)
     }
     
-    private func addNewNoteView() -> AddNewNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl> {
-        return AddNewNoteView(saveNoteViewModel: saveNoteViewModel())
+    private func addNewNoteView() -> ManageNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl> {
+        return ManageNoteView(saveNoteViewModel: saveNoteViewModel())
     }
     
     // TODO: Change the location of view model creation

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddNewNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListContentViewModel {
+struct ManageNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListContentViewModel {
     @ObservedObject var saveNoteViewModel: T
     @EnvironmentObject var notesListContentViewModel: U
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -31,7 +31,7 @@ struct AddNewNoteView<T, U>: View where T: SaveNoteViewModel, U: NotesListConten
     }
 }
 
-struct MainView<T>: View where T: SaveNoteViewModel {
+private struct MainView<T>: View where T: SaveNoteViewModel {
     @ObservedObject var saveNoteViewModel: T
     @State private var noteTitle = ""
     @State private var noteDescription = ""
@@ -74,7 +74,7 @@ struct MainView<T>: View where T: SaveNoteViewModel {
     }
 }
 
-struct SaveButton: View {
+private struct SaveButton: View {
     @Binding var isSaveButtonDisabled: Bool
     var action: () -> Void
     
@@ -105,6 +105,6 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(saveNoteViewModel: SaveNoteViewModelPreview())
+        ManageNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(saveNoteViewModel: SaveNoteViewModelPreview())
     }
 }

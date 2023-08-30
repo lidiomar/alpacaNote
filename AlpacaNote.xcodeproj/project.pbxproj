@@ -28,7 +28,7 @@
 		9DAC1672292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAC1671292F02EF0093520F /* AlpacaNoteUITestsLaunchTests.swift */; };
 		9DE4DAC42A6882BF00E3813F /* NotesListContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4DAC32A6882BF00E3813F /* NotesListContentViewModel.swift */; };
 		9DE557FA2A927C4F0029CF19 /* NoteListLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE557F92A927C4F0029CF19 /* NoteListLoadingState.swift */; };
-		9DE557FE2A92B41B0029CF19 /* AddNewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE557FD2A92B41B0029CF19 /* AddNewNoteView.swift */; };
+		9DE557FE2A92B41B0029CF19 /* ManageNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE557FD2A92B41B0029CF19 /* ManageNoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +89,7 @@
 		9DBE76D229D89A3A00507ECE /* AlpacaNoteStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4DAC32A6882BF00E3813F /* NotesListContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentViewModel.swift; sourceTree = "<group>"; };
 		9DE557F92A927C4F0029CF19 /* NoteListLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListLoadingState.swift; sourceTree = "<group>"; };
-		9DE557FD2A92B41B0029CF19 /* AddNewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewNoteView.swift; sourceTree = "<group>"; };
+		9DE557FD2A92B41B0029CF19 /* ManageNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNoteView.swift; sourceTree = "<group>"; };
 		9DF8827A29D90D45004F3040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,7 @@
 				9D89FDE22A228B5A00F8DD12 /* NotesListContent.swift */,
 				9D89FDE72A228D4800F8DD12 /* NotesListContentRow.swift */,
 				9D89FDEB2A22BFBE00F8DD12 /* NoContent.swift */,
-				9DE557FD2A92B41B0029CF19 /* AddNewNoteView.swift */,
+				9DE557FD2A92B41B0029CF19 /* ManageNoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				9D78AEEC2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift in Sources */,
 				9D89FDEA2A22B1F800F8DD12 /* Note.swift in Sources */,
 				9D78AEE82A9AB756003E5858 /* SaveState.swift in Sources */,
-				9DE557FE2A92B41B0029CF19 /* AddNewNoteView.swift in Sources */,
+				9DE557FE2A92B41B0029CF19 /* ManageNoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
