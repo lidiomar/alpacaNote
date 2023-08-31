@@ -8,7 +8,7 @@
 import Foundation
 import AlpacaNoteFramework
 
-class SaveNoteViewModelImpl: ManageNoteViewModel {
+class SaveNoteViewModel: ManageNoteViewModel {
     @Published var state: ManageNoteState = .idle
     private var noteStorage: NoteStorage
     
@@ -24,11 +24,5 @@ class SaveNoteViewModelImpl: ManageNoteViewModel {
         } catch {
             state = .error
         }
-    }
-}
-
-private extension Note {
-    func convert() -> AlpacaNoteFramework.Note {
-        return AlpacaNoteFramework.Note(id: self.id, title: self.title, description: self.description)
     }
 }

@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct ManageNoteView<T, U>: View where T: ManageNoteViewModel, U: NotesListContentViewModel {
-    @ObservedObject var saveNoteViewModel: T
+    @ObservedObject var manageNoteViewModel: T
     @EnvironmentObject var notesListContentViewModel: U
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var note: Note?
+    
+    // TODO: Fix Hardcoded strings
     var body: some View {
         VStack {
-            switch saveNoteViewModel.state {
+            switch manageNoteViewModel.state {
             case .idle:
-                MainView(saveNoteViewModel: saveNoteViewModel)
+                MainView(manageNoteViewModel: manageNoteViewModel,
+                         noteId: note?.id ?? UUID(),
+                         noteTitle: note?.title ?? "",
+                         noteDescription: note?.description ?? "",
+                         isSaveButtonDisabled: true)
             case .success:
                 Text("Success").onAppear {
                     notesListContentViewModel.fetchNotes()
@@ -32,16 +39,17 @@ struct ManageNoteView<T, U>: View where T: ManageNoteViewModel, U: NotesListCont
 }
 
 private struct MainView<T>: View where T: ManageNoteViewModel {
-    @ObservedObject var saveNoteViewModel: T
-    @State private var noteTitle = ""
-    @State private var noteDescription = ""
-    @State private var isSaveButtonDisabled = true
+    @ObservedObject var manageNoteViewModel: T
+    @State var noteId: UUID
+    @State var noteTitle: String
+    @State var noteDescription: String
+    @State var isSaveButtonDisabled: Bool
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             VStack(alignment: .leading) {
                 Text("Title:")
-                TextField("", text: $noteTitle).textFieldStyle(.roundedBorder)
+                TextField(noteTitle, text: $noteTitle).textFieldStyle(.roundedBorder)
             }
             VStack(alignment: .leading) {
                 Text("Description:")
@@ -57,14 +65,14 @@ private struct MainView<T>: View where T: ManageNoteViewModel {
             }
             Spacer()
             SaveButton(isSaveButtonDisabled: $isSaveButtonDisabled) {
-                saveNoteViewModel.manage(note: Note(id: UUID(), title: noteTitle, description: noteDescription))
+                manageNoteViewModel.manage(note: Note(id: noteId, title: noteTitle, description: noteDescription))
             }
         }.onChange(of: noteTitle) { _ in
             shouldDisableSaveButton()
         }.onChange(of: noteDescription) { _ in
             shouldDisableSaveButton()
         }
-        .navigationBarTitle("Add a new note", displayMode: .inline)
+        .navigationBarTitle("Add new note", displayMode: .inline)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
     }
@@ -105,6 +113,6 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        ManageNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(saveNoteViewModel: SaveNoteViewModelPreview())
+        ManageNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(manageNoteViewModel: SaveNoteViewModelPreview())
     }
 }

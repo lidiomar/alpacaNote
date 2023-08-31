@@ -15,7 +15,7 @@ struct NotesListContent: View {
     var body: some View {
         List {
             ForEach(content.notes) { note in
-                NavigationLink(destination: { addNewNoteView() },
+                NavigationLink(destination: { addNewNoteView(note: note) },
                                label: { NotesListContentRow(note: note) })
             }
         }
@@ -23,19 +23,19 @@ struct NotesListContent: View {
         .padding(.top, 20)
     }
     
-    private func addNewNoteView() -> ManageNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl> {
-        return ManageNoteView(saveNoteViewModel: saveNoteViewModel())
+    private func addNewNoteView(note: Note) -> ManageNoteView<UpdateNoteViewModel, NotesListContentViewModelImpl> {
+        return ManageNoteView(manageNoteViewModel: updateNoteViewModel(), note: note)
     }
     
     // TODO: Change the location of view model creation
-    private func saveNoteViewModel() -> SaveNoteViewModelImpl {
+    private func updateNoteViewModel() -> UpdateNoteViewModel {
         var storage: NoteStorage
         do {
             storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
         } catch {
             storage = NullStorage()
         }
-        return SaveNoteViewModelImpl(noteStorage: storage)
+        return UpdateNoteViewModel(noteStorage: storage)
     }
 }
 

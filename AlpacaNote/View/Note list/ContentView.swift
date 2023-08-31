@@ -36,7 +36,7 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }
             }
             .toolbar {
-                NavigationLink(destination: ManageNoteView<SaveNoteViewModelImpl, NotesListContentViewModelImpl>(saveNoteViewModel: saveNoteViewModel())) {
+                NavigationLink(destination: ManageNoteView<SaveNoteViewModel, NotesListContentViewModelImpl>(manageNoteViewModel: saveNoteViewModel())) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
@@ -48,14 +48,14 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
     }
     
     // TODO: Change the location of view model creation
-    func saveNoteViewModel() -> SaveNoteViewModelImpl {
+    func saveNoteViewModel() -> SaveNoteViewModel {
         var storage: NoteStorage
         do {
             storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
         } catch {
             storage = NullStorage()
         }
-        return SaveNoteViewModelImpl(noteStorage: storage)
+        return SaveNoteViewModel(noteStorage: storage)
     }
 }
 

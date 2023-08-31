@@ -10,5 +10,27 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #3 in closure #1 in MainView.body.getter:ManageNoteView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #1 in MainView.body.getter:ManageNoteView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "noteTitle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UpdateNoteViewModel.manage(note:):UpdateNoteViewModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ManageNoteView.body.getter:ManageNoteView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "note">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
