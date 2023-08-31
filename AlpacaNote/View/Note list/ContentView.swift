@@ -26,7 +26,7 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
             VStack {
                 switch notesListContentViewModel.state {
                 case let .loaded(notes):
-                    NotesListContent(content: NoteContent(notes: notes))
+                    NotesListContent(content: NoteContent(notes: notes), manageNoteViewModel: deleteNoteViewModel())
                 case .empty:
                     NoContent()
                 case .loading, .idle:
@@ -56,6 +56,16 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
             storage = NullStorage()
         }
         return SaveNoteViewModel(noteStorage: storage)
+    }
+    
+    func deleteNoteViewModel() -> DeleteNoteViewModel {
+        var storage: NoteStorage
+        do {
+            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
+        } catch {
+            storage = NullStorage()
+        }
+        return DeleteNoteViewModel(noteStorage: storage)
     }
 }
 
