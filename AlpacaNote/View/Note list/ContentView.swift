@@ -18,15 +18,16 @@ struct GrowingButton: ButtonStyle {
     }
 }
 
-struct ContentView<T>: View where T: NotesListContentViewModel {
+struct ContentView<T, U>: View where T: NotesListContentViewModel, U: ManageNoteViewModel {
     @EnvironmentObject var notesListContentViewModel: T
+    var noteListContent: (NoteContent) -> NotesListContent<U>
     
     var body: some View {
         NavigationView {
             VStack {
                 switch notesListContentViewModel.state {
                 case let .loaded(notes):
-                    NotesListContent(content: NoteContent(notes: notes), manageNoteViewModel: deleteNoteViewModel())
+                    noteListContent(NoteContent(notes: notes))
                 case .empty:
                     NoContent()
                 case .loading, .idle:
@@ -57,20 +58,13 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
         }
         return SaveNoteViewModel(noteStorage: storage)
     }
-    
-    func deleteNoteViewModel() -> DeleteNoteViewModel {
-        var storage: NoteStorage
-        do {
-            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
-        } catch {
-            storage = NullStorage()
-        }
-        return DeleteNoteViewModel(noteStorage: storage)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView<NotesListContentViewModelPreview>().environmentObject(NotesListContentViewModelPreview())
+        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview>(noteListContent: { _ in
+            let content = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
+            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview())
+        }).environmentObject(NotesListContentViewModelPreview())
     }
 }

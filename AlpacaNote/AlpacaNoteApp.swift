@@ -9,22 +9,34 @@ import SwiftUI
 import AlpacaNoteFramework
 import CoreData
 
-// TODO: Extract the NotesListContentViewModelImpl creation
 @main
 struct AlpacaNoteApp: App {
-    private var notesViewModel: NotesListContentViewModelImpl {
-        var storage: NoteStorage
-        do {
-            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
-        } catch {
-            storage = NullStorage()
-        }
-        return NotesListContentViewModelImpl(noteStorage: storage)
-    }
+    private var notesViewModel = NotesListContentViewModelImpl(noteStorage: AlpacaNoteNoteStorage.shared)
+    private var saveNoteViewModel = SaveNoteViewModel(noteStorage: AlpacaNoteNoteStorage.shared)
+    private var deleteNoteViewModel = DeleteNoteViewModel(noteStorage: AlpacaNoteNoteStorage.shared)
     
     var body: some Scene {
         WindowGroup {
-            ContentView<NotesListContentViewModelImpl>().environmentObject(notesViewModel)
+            ContentViewComposer.composeWith(notesViewModel: notesViewModel,
+                                            manageNoteViewModel: deleteNoteViewModel)
+        }
+    }
+}
+
+final class ContentViewComposer {
+    private init() {}
+    
+    static func composeWith<T, U>(notesViewModel: T, manageNoteViewModel: U) -> some View where T: NotesListContentViewModel, U: ManageNoteViewModel {
+        return ContentView<T, U>(noteListContent: NotesListContentComposer.composeWith(viewModel: manageNoteViewModel)).environmentObject(notesViewModel)
+    }
+}
+
+final class NotesListContentComposer {
+    private init() {}
+    
+    static func composeWith<T>(viewModel: T) -> (NoteContent) -> NotesListContent<T> where T: ManageNoteViewModel {
+        return { note in
+            return NotesListContent(content: note, manageNoteViewModel: viewModel)
         }
     }
 }
