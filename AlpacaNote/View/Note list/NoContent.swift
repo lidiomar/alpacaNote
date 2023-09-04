@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct NoContent: View {
-    @EnvironmentObject var notesModelData: NotesListContentViewModelImpl
-    
     var body: some View {
         VStack(alignment: .center) {
             Text("Your list is empty.")
@@ -17,7 +15,7 @@ struct NoContent: View {
     }
 }
 
-struct NoContentt_Previews: PreviewProvider {
+struct NoContent_Previews: PreviewProvider {
     static var previews: some View {
         NoContent()
     }

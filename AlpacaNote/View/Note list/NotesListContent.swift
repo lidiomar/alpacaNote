@@ -7,16 +7,16 @@
 
 import SwiftUI
 import AlpacaNoteFramework
-import CoreData
 
-struct NotesListContent<T>: View where T: ManageNoteViewModel {
+struct NotesListContent<T, U>: View where T: ManageNoteViewModel, U: ManageNoteViewModel {
     @ObservedObject var content: NoteContent
     @ObservedObject var manageNoteViewModel: T
+    var noteView: (Note?) -> ManageNoteView<U>
     
     var body: some View {
         List {
             ForEach(content.notes) { note in
-                NavigationLink(destination: { addNewNoteView(note: note) },
+                NavigationLink(destination: { noteView(note) },
                                label: { NotesListContentRow(note: note) })
             }.onDelete(perform: delete)
         }
@@ -31,25 +31,14 @@ struct NotesListContent<T>: View where T: ManageNoteViewModel {
         }
         content.notes.remove(atOffsets: offsets)
     }
-    
-    private func addNewNoteView(note: Note) -> ManageNoteView<UpdateNoteViewModel, NotesListContentViewModelImpl> {
-        return ManageNoteView(manageNoteViewModel: updateNoteViewModel(), note: note)
-    }
-    
-    // TODO: Change the location of view model creation
-    private func updateNoteViewModel() -> UpdateNoteViewModel {
-        var storage: NoteStorage
-        do {
-            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
-        } catch {
-            storage = NullStorage()
-        }
-        return UpdateNoteViewModel(noteStorage: storage)
-    }
 }
 
 struct NotesListContent_Previews: PreviewProvider {
     static var previews: some View {
-        NotesListContent(content: NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")]), manageNoteViewModel: DeleteNoteViewModelPreview())
+        let noteContent = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
+        let manageNoteView = ManageNoteView(manageNoteViewModel: UpdateNoteViewModelPreview())
+        NotesListContent<DeleteNoteViewModelPreview, UpdateNoteViewModelPreview>(content: noteContent,
+                                                                                 manageNoteViewModel: DeleteNoteViewModelPreview(),
+                                                                                 noteView: { _ in manageNoteView })
     }
 }

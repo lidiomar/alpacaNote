@@ -13,4 +13,8 @@ class SaveNoteViewModelPreview: ManageNoteViewModel {
     func manage(note: Note) {
         print("Save")
     }
+    
+    func updateStateTo(_ state: ManageNoteState) {
+        self.state = state
+    }
 }

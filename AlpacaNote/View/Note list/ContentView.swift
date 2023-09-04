@@ -7,7 +7,6 @@
 
 import SwiftUI
 import AlpacaNoteFramework
-import CoreData
 
 struct GrowingButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -18,9 +17,10 @@ struct GrowingButton: ButtonStyle {
     }
 }
 
-struct ContentView<T, U>: View where T: NotesListContentViewModel, U: ManageNoteViewModel {
+struct ContentView<T, U, V, X>: View where T: NotesListContentViewModel, U: ManageNoteViewModel, V: ManageNoteViewModel, X: ManageNoteViewModel {
     @EnvironmentObject var notesListContentViewModel: T
-    var noteListContent: (NoteContent) -> NotesListContent<U>
+    var noteListContent: (NoteContent) -> NotesListContent<U, X>
+    var noteView: ManageNoteView<V>
     
     var body: some View {
         NavigationView {
@@ -37,7 +37,7 @@ struct ContentView<T, U>: View where T: NotesListContentViewModel, U: ManageNote
                 }
             }
             .toolbar {
-                NavigationLink(destination: ManageNoteView<SaveNoteViewModel, NotesListContentViewModelImpl>(manageNoteViewModel: saveNoteViewModel())) {
+                NavigationLink(destination: noteView) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
@@ -47,24 +47,13 @@ struct ContentView<T, U>: View where T: NotesListContentViewModel, U: ManageNote
             notesListContentViewModel.fetchNotes()
         }
     }
-    
-    // TODO: Change the location of view model creation
-    func saveNoteViewModel() -> SaveNoteViewModel {
-        var storage: NoteStorage
-        do {
-            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
-        } catch {
-            storage = NullStorage()
-        }
-        return SaveNoteViewModel(noteStorage: storage)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview>(noteListContent: { _ in
+        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview, SaveNoteViewModelPreview, UpdateNoteViewModelPreview>(noteListContent: { _ in
             let content = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
-            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview())
-        }).environmentObject(NotesListContentViewModelPreview())
+            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview(), noteView: { _ in ManageNoteView(manageNoteViewModel: UpdateNoteViewModelPreview()) })
+        }, noteView: ManageNoteView(manageNoteViewModel: SaveNoteViewModelPreview())).environmentObject(NotesListContentViewModelPreview())
     }
 }

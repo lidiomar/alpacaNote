@@ -25,4 +25,8 @@ class UpdateNoteViewModel: ManageNoteViewModel {
             state = .error
         }
     }
+    
+    func updateStateTo(_ state: ManageNoteState) {
+        self.state = state
+    }
 }

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ManageNoteView<T, U>: View where T: ManageNoteViewModel, U: NotesListContentViewModel {
+struct ManageNoteView<T>: View where T: ManageNoteViewModel {
     @ObservedObject var manageNoteViewModel: T
-    @EnvironmentObject var notesListContentViewModel: U
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var manageAction: (() -> Void)?
     var note: Note?
     
     // TODO: Fix Hardcoded strings
@@ -26,7 +26,7 @@ struct ManageNoteView<T, U>: View where T: ManageNoteViewModel, U: NotesListCont
                          isSaveButtonDisabled: true)
             case .success:
                 Text("Success").onAppear {
-                    notesListContentViewModel.fetchNotes()
+                    manageAction?()
                     presentationMode.wrappedValue.dismiss()
                 }
             case .processing:
@@ -113,6 +113,6 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        ManageNoteView<SaveNoteViewModelPreview, NotesListContentViewModelPreview>(manageNoteViewModel: SaveNoteViewModelPreview())
+        ManageNoteView<SaveNoteViewModelPreview>(manageNoteViewModel: SaveNoteViewModelPreview())
     }
 }
