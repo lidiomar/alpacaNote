@@ -17,7 +17,6 @@ struct GrowingButton: ButtonStyle {
     }
 }
 
-
 class FetchNotesManagement: ObservableObject, Equatable {
     static func == (lhs: FetchNotesManagement, rhs: FetchNotesManagement) -> Bool {
         lhs.shouldFetch == rhs.shouldFetch
