@@ -8,18 +8,12 @@
 import Foundation
 import SwiftUI
 
-final class NotesListContentComposer {
-    private init() {}
-    
-    static func composeWith<T, U>(contentViewModel: any NotesListContentViewModel,
-                                  deleteViewModel: T,
-                                  updateViewModel: U) -> (NoteContent) -> NotesListContent<T, U> where T: ManageNoteViewModel, U: ManageNoteViewModel {
-        return { note in
-            NotesListContent(content: note, manageNoteViewModel: deleteViewModel) { note in
-                ManageNoteViewComposer.composeWith(manageViewModel: updateViewModel,
-                                                   notesListContentViewModel: contentViewModel,
-                                                   note: note)
-            }
-        }
-    }
-}
+//final class NotesListContentComposer {
+//    private init() {}
+//    
+//    static func composeWith<T>(deleteViewModel: T) -> (NoteContent) -> NotesListContent<T> where T: ManageNoteViewModel {
+//        return { note in
+//            NotesListContent(content: note, manageNoteViewModel: deleteViewModel)
+//        }
+//    }
+//}

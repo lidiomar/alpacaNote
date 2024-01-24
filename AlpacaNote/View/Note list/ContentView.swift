@@ -17,17 +17,16 @@ struct GrowingButton: ButtonStyle {
     }
 }
 
-struct ContentView<T, U, V, X>: View where T: NotesListContentViewModel, U: ManageNoteViewModel, V: ManageNoteViewModel, X: ManageNoteViewModel {
-    @EnvironmentObject var notesListContentViewModel: T
-    var noteListContent: (NoteContent) -> NotesListContent<U, X>
-    var noteView: ManageNoteView<V>
+struct ContentView<T>: View where T: NotesListContentViewModel {
+    @EnvironmentObject var navigationComposer: Assembler
+    @ObservedObject var notesListContentViewModel: T
     
     var body: some View {
         NavigationView {
             VStack {
                 switch notesListContentViewModel.state {
                 case let .loaded(notes):
-                    noteListContent(NoteContent(notes: notes))
+                    navigationComposer.notesListContent(withNoteContent: NoteContent(notes: notes))
                 case .empty:
                     NoContent()
                 case .loading, .idle:
@@ -37,7 +36,7 @@ struct ContentView<T, U, V, X>: View where T: NotesListContentViewModel, U: Mana
                 }
             }
             .toolbar {
-                NavigationLink(destination: noteView) {
+                NavigationLink(destination: navigationComposer.manageNoteView) {
                     Image(systemName: "doc.badge.plus")
                 }.buttonStyle(GrowingButton())
             }
@@ -49,11 +48,11 @@ struct ContentView<T, U, V, X>: View where T: NotesListContentViewModel, U: Mana
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview, SaveNoteViewModelPreview, UpdateNoteViewModelPreview>(noteListContent: { _ in
-            let content = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
-            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview(), noteView: { _ in ManageNoteView(manageNoteViewModel: UpdateNoteViewModelPreview()) })
-        }, noteView: ManageNoteView(manageNoteViewModel: SaveNoteViewModelPreview())).environmentObject(NotesListContentViewModelPreview())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview, SaveNoteViewModelPreview, UpdateNoteViewModelPreview>(noteListContent: { _ in
+//            let content = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
+//            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview(), noteView: { _ in ManageNoteView(manageNoteViewModel: UpdateNoteViewModelPreview()) })
+//        }, noteView: ManageNoteView(manageNoteViewModel: SaveNoteViewModelPreview())).environmentObject(NotesListContentViewModelPreview())
+//    }
+//}

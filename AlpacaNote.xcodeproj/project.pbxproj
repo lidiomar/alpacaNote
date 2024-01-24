@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D1C24D72B61554F007266D5 /* Composer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C24D62B61554F007266D5 /* Composer.swift */; };
 		9D4C31442A32430100B60A60 /* NotesListContentViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */; };
 		9D78AEE42A9AB59C003E5858 /* ManageNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE32A9AB59C003E5858 /* ManageNoteViewModel.swift */; };
 		9D78AEE62A9AB5DE003E5858 /* SaveNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModel.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D1C24D62B61554F007266D5 /* Composer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
 		9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentViewModelImpl.swift; sourceTree = "<group>"; };
 		9D78AEE32A9AB59C003E5858 /* ManageNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNoteViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				9DAB4F7B2AA57E1900C06847 /* ContentViewComposer.swift */,
 				9DAB4F7D2AA57E4E00C06847 /* ManageNoteViewComposer.swift */,
 				9DAB4F7F2AA57E6900C06847 /* NotesListContentComposer.swift */,
+				9D1C24D62B61554F007266D5 /* Composer.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				9DE557FA2A927C4F0029CF19 /* NoteListLoadingState.swift in Sources */,
 				9DBDDB102A9FF1FE00C6A6DC /* Note+Convert.swift in Sources */,
 				9DAB4F772AA525C200C06847 /* AlpacaNoteCoreDataNoteStorage.swift in Sources */,
+				9D1C24D72B61554F007266D5 /* Composer.swift in Sources */,
 				9DAC1656292F02EE0093520F /* ContentView.swift in Sources */,
 				9D89FDE82A228D4800F8DD12 /* NotesListContentRow.swift in Sources */,
 				9DAB4F802AA57E6900C06847 /* NotesListContentComposer.swift in Sources */,
