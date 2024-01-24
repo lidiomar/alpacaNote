@@ -9,6 +9,5 @@ import Foundation
 
 protocol ManageNoteViewModel: ObservableObject {
     var state: ManageNoteState { get }
-    func updateStateTo(_ state: ManageNoteState)
     func manage(note: Note)
 }

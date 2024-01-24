@@ -10,6 +10,7 @@ import SwiftUI
 struct ManageNoteView<T>: View where T: ManageNoteViewModel {
     @ObservedObject var manageNoteViewModel: T
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var bla: FetchNotesManagement
     
     var manageAction: (() -> Void)?
     var note: Note?
@@ -26,7 +27,7 @@ struct ManageNoteView<T>: View where T: ManageNoteViewModel {
                          isSaveButtonDisabled: true)
             case .success:
                 Text("Success").onAppear {
-                    manageAction?()
+                    bla.shouldFetch = true
                     presentationMode.wrappedValue.dismiss()
                 }
             case .processing:

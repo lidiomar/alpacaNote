@@ -17,9 +17,20 @@ struct GrowingButton: ButtonStyle {
     }
 }
 
+
+class FetchNotesManagement: ObservableObject, Equatable {
+    static func == (lhs: FetchNotesManagement, rhs: FetchNotesManagement) -> Bool {
+        lhs.shouldFetch == rhs.shouldFetch
+    }
+    
+    @Published
+    var shouldFetch: Bool = false
+}
+
 struct ContentView<T>: View where T: NotesListContentViewModel {
     @EnvironmentObject var navigationComposer: Assembler
     @ObservedObject var notesListContentViewModel: T
+    @StateObject var bla = FetchNotesManagement()
     
     var body: some View {
         NavigationView {
@@ -41,10 +52,15 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }.buttonStyle(GrowingButton())
             }
             .navigationBarTitle("Notes", displayMode: .large)
+        }.onChange(of: bla.shouldFetch) { bla in
+            if bla {
+                notesListContentViewModel.fetchNotes()
+                self.bla.shouldFetch = false
+            }
         }
         .task {
             notesListContentViewModel.fetchNotes()
-        }
+        }.environmentObject(bla)
     }
 }
 

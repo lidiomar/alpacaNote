@@ -14,8 +14,4 @@ class UpdateNoteViewModelPreview: ManageNoteViewModel {
     func manage(note: Note) {
         print("Update")
     }
-    
-    func updateStateTo(_ state: ManageNoteState) {
-        self.state = state
-    }
 }
