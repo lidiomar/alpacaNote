@@ -30,7 +30,7 @@ class FetchNotesManagement: ObservableObject, Equatable {
 struct ContentView<T>: View where T: NotesListContentViewModel {
     @EnvironmentObject var navigationComposer: Assembler
     @ObservedObject var notesListContentViewModel: T
-    @StateObject var bla = FetchNotesManagement()
+    @StateObject var fetchNotesManagement = FetchNotesManagement()
     
     var body: some View {
         NavigationView {
@@ -52,23 +52,20 @@ struct ContentView<T>: View where T: NotesListContentViewModel {
                 }.buttonStyle(GrowingButton())
             }
             .navigationBarTitle("Notes", displayMode: .large)
-        }.onChange(of: bla.shouldFetch) { bla in
-            if bla {
+        }.onChange(of: fetchNotesManagement.shouldFetch) { shouldFetch in
+            if shouldFetch {
                 notesListContentViewModel.fetchNotes()
-                self.bla.shouldFetch = false
+                self.fetchNotesManagement.shouldFetch = false
             }
         }
         .task {
             notesListContentViewModel.fetchNotes()
-        }.environmentObject(bla)
+        }.environmentObject(fetchNotesManagement)
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView<NotesListContentViewModelPreview, DeleteNoteViewModelPreview, SaveNoteViewModelPreview, UpdateNoteViewModelPreview>(noteListContent: { _ in
-//            let content = NoteContent(notes: [Note(id: UUID(), title: "Title", description: "Description")])
-//            return NotesListContent(content: content, manageNoteViewModel: DeleteNoteViewModelPreview(), noteView: { _ in ManageNoteView(manageNoteViewModel: UpdateNoteViewModelPreview()) })
-//        }, noteView: ManageNoteView(manageNoteViewModel: SaveNoteViewModelPreview())).environmentObject(NotesListContentViewModelPreview())
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(notesListContentViewModel: NotesListContentViewModelPreview()).environmentObject(Assembler())
+    }
+}
