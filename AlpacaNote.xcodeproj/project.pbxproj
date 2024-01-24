@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D1C24D72B61554F007266D5 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C24D62B61554F007266D5 /* Assembler.swift */; };
 		9D4C31442A32430100B60A60 /* NotesListContentViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */; };
+		9D6AA3F02B61BE850000CCA2 /* AlpacaNoteSwiftDataNoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6AA3EF2B61BE850000CCA2 /* AlpacaNoteSwiftDataNoteStorage.swift */; };
 		9D78AEE42A9AB59C003E5858 /* ManageNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE32A9AB59C003E5858 /* ManageNoteViewModel.swift */; };
 		9D78AEE62A9AB5DE003E5858 /* SaveNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModel.swift */; };
 		9D78AEE82A9AB756003E5858 /* ManageNoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D78AEE72A9AB756003E5858 /* ManageNoteState.swift */; };
@@ -73,6 +74,7 @@
 		9D1C24D62B61554F007266D5 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		9D426E4829A6EF31003AC259 /* AlpacaNoteCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlpacaNoteCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4C31432A32430100B60A60 /* NotesListContentViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListContentViewModelImpl.swift; sourceTree = "<group>"; };
+		9D6AA3EF2B61BE850000CCA2 /* AlpacaNoteSwiftDataNoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlpacaNoteSwiftDataNoteStorage.swift; sourceTree = "<group>"; };
 		9D78AEE32A9AB59C003E5858 /* ManageNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNoteViewModel.swift; sourceTree = "<group>"; };
 		9D78AEE52A9AB5DE003E5858 /* SaveNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNoteViewModel.swift; sourceTree = "<group>"; };
 		9D78AEE72A9AB756003E5858 /* ManageNoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNoteState.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		9DAB4F742AA525A600C06847 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				9D6AA3EF2B61BE850000CCA2 /* AlpacaNoteSwiftDataNoteStorage.swift */,
 				9DAB4F762AA525C200C06847 /* AlpacaNoteCoreDataNoteStorage.swift */,
 				9D78AEE92A9AC9B4003E5858 /* NullStorage.swift */,
 			);
@@ -450,6 +453,7 @@
 				9D78AEEA2A9AC9B4003E5858 /* NullStorage.swift in Sources */,
 				9D4C31442A32430100B60A60 /* NotesListContentViewModelImpl.swift in Sources */,
 				9DEDA4BC2AA033BB0030DA2D /* DeleteNoteViewModel.swift in Sources */,
+				9D6AA3F02B61BE850000CCA2 /* AlpacaNoteSwiftDataNoteStorage.swift in Sources */,
 				9D78AEEC2A9ACE68003E5858 /* SaveNoteViewModelPreview.swift in Sources */,
 				9D89FDEA2A22B1F800F8DD12 /* Note.swift in Sources */,
 				9DAB4F792AA56A9700C06847 /* UpdateNoteViewModelPreview.swift in Sources */,
@@ -624,10 +628,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,10 +668,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote;
 				PRODUCT_NAME = "$(TARGET_NAME)";

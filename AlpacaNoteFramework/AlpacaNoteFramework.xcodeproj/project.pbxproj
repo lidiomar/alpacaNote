@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D426E1029A6E91E003AC259 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D426E0F29A6E91E003AC259 /* Note.swift */; };
+		9D6AA3EC2B618B220000CCA2 /* SwiftDataNoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6AA3EB2B618B220000CCA2 /* SwiftDataNoteStorage.swift */; };
+		9D6AA3EE2B619B000000CCA2 /* NoteSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6AA3ED2B619B000000CCA2 /* NoteSwiftData.swift */; };
 		9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */; };
 		9D878E1129418D3B00D5DAD3 /* AlpacaNoteFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D878E2229418EDE00D5DAD3 /* NoteStorage.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		9D04BE4829BE7B3100F1B961 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9D426E0F29A6E91E003AC259 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9D6AA3EB2B618B220000CCA2 /* SwiftDataNoteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataNoteStorage.swift; sourceTree = "<group>"; };
+		9D6AA3ED2B619B000000CCA2 /* NoteSwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSwiftData.swift; sourceTree = "<group>"; };
 		9D878E0029418D3B00D5DAD3 /* AlpacaNoteFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlpacaNoteFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D878E0329418D3B00D5DAD3 /* AlpacaNoteFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlpacaNoteFramework.h; sourceTree = "<group>"; };
 		9D878E0429418D3B00D5DAD3 /* AlpacaNoteFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AlpacaNoteFramework.docc; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 				9D426E0F29A6E91E003AC259 /* Note.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9D6AA3EA2B618AF90000CCA2 /* AlpacaNoteSwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				9D6AA3EB2B618B220000CCA2 /* SwiftDataNoteStorage.swift */,
+				9D6AA3ED2B619B000000CCA2 /* NoteSwiftData.swift */,
+			);
+			path = AlpacaNoteSwiftData;
 			sourceTree = "<group>";
 		};
 		9D878DF629418D3B00D5DAD3 = {
@@ -133,6 +146,7 @@
 		9DFC0EE52A2260A900038C32 /* AlpacaNoteStorage */ = {
 			isa = PBXGroup;
 			children = (
+				9D6AA3EA2B618AF90000CCA2 /* AlpacaNoteSwiftData */,
 				9DFC0EE72A2260F200038C32 /* AlpacaNoteCoreData */,
 			);
 			path = AlpacaNoteStorage;
@@ -280,6 +294,8 @@
 				9DFC0EED2A22614500038C32 /* CoreDataNoteStorage.swift in Sources */,
 				9DFC0EEF2A22617100038C32 /* NoteCache.swift in Sources */,
 				9D426E1029A6E91E003AC259 /* Note.swift in Sources */,
+				9D6AA3EE2B619B000000CCA2 /* NoteSwiftData.swift in Sources */,
+				9D6AA3EC2B618B220000CCA2 /* SwiftDataNoteStorage.swift in Sources */,
 				9D878E0529418D3B00D5DAD3 /* AlpacaNoteFramework.docc in Sources */,
 				9DFC0EEC2A22613A00038C32 /* CoreDataHelpers.swift in Sources */,
 				9D878E2329418EDE00D5DAD3 /* NoteStorage.swift in Sources */,
@@ -434,7 +450,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -443,7 +459,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.alpacanoteframework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -468,7 +484,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -477,7 +493,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alpacanote.alpacanoteframework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

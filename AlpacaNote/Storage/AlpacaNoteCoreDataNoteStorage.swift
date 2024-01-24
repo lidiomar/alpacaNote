@@ -9,14 +9,14 @@ import Foundation
 import AlpacaNoteFramework
 import CoreData
 
-final class AlpacaNoteNoteStorage {
+final class AlpacaNoteCoreDataNoteStorage {
     
     private init() {}
     
     static var shared: NoteStorage {
         var storage: NoteStorage
         do {
-            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("feed-store.sqlite"))
+            storage = try CoreDataNoteStorage(storeURL: NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("alpaca-note-store.sqlite"))
         } catch {
             storage = NullStorage()
         }
