@@ -28,7 +28,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D878E0929418D3B00D5DAD3"
+               BlueprintIdentifier = "9DFC0ED82A22606A00038C32"
                BuildableName = "AlpacaNoteFrameworkTests.xctest"
                BlueprintName = "AlpacaNoteFrameworkTests"
                ReferencedContainer = "container:AlpacaNoteFramework.xcodeproj">
@@ -58,7 +58,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D878E0929418D3B00D5DAD3"
+               BlueprintIdentifier = "9DFC0ED82A22606A00038C32"
                BuildableName = "AlpacaNoteFrameworkTests.xctest"
                BlueprintName = "AlpacaNoteFrameworkTests"
                ReferencedContainer = "container:AlpacaNoteFramework.xcodeproj">
