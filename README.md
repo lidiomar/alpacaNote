@@ -1,3 +1,3 @@
 Project architecture:
 
-![alpaca2-Page-1 drawio (2)](https://github.com/lidiomar/alpacaNote/assets/10325730/427ff74c-f885-4493-81ff-c324f6a8fa45)
+![alpaca2-Page-2 drawio](https://github.com/lidiomar/alpacaNote/assets/10325730/40d84e40-bc8e-4924-8a4e-1661ccd36957)
