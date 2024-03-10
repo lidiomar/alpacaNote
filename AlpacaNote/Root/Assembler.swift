@@ -9,22 +9,22 @@ import Foundation
 import SwiftUI
 
 class Assembler: ObservableObject {
-    static let noteStorage = AlpacaNoteCoreDataNoteStorage.shared
+    static let noteStorage = AlpacaNoteSwiftDataNoteStorage.shared
     
     static func root() -> some View {
         return composeContentView(contentViewModel: NotesListContentViewModelImpl(noteStorage: Assembler.noteStorage))
     }
     
     func notesListContent(withNoteContent note: NoteContent) -> some View {
-        return composeNotesListContent(noteContent: note, deleteViewModel: DeleteNoteViewModel(noteStorage: Assembler.noteStorage))
+        return composeNotesListContent(noteContent: note, deleteViewModel: ManageNoteViewModelImpl(noteStorage: Assembler.noteStorage, operation: .delete))
     }
     
     func manageNoteView() -> some View {
-        return composeManageNoteView(saveNoteViewModel: SaveNoteViewModel(noteStorage: Assembler.noteStorage))
+        return composeManageNoteView(saveNoteViewModel: ManageNoteViewModelImpl(noteStorage: Assembler.noteStorage, operation: .save))
     }
     
     func manageNoteView(withNote note: Note) -> some View {
-        return composeManageNoteView(withNote: note, updateViewModel: UpdateNoteViewModel(noteStorage: Assembler.noteStorage))
+        return composeManageNoteView(withNote: note, updateViewModel: ManageNoteViewModelImpl(noteStorage: Assembler.noteStorage, operation: .update))
     }
 }
 

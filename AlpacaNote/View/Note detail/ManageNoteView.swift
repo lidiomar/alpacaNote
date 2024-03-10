@@ -112,6 +112,6 @@ struct GrowingButtonSave: ButtonStyle {
 
 struct AddNewNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        ManageNoteView<SaveNoteViewModelPreview>(manageNoteViewModel: SaveNoteViewModelPreview())
+        ManageNoteView<ManageNoteViewModelImpl>(manageNoteViewModel: ManageNoteViewModelImpl(noteStorage: NullStorage(), operation: .save))
     }
 }

@@ -35,7 +35,7 @@ struct NotesListContent<T>: View where T: ManageNoteViewModel {
 
 struct NotesListContent_Previews: PreviewProvider {
     static var previews: some View {
-        let a = NoteContent(notes: [
+        let notes = NoteContent(notes: [
             Note(id: UUID(), title: "Note 1", description: "Description 1"),
             Note(id: UUID(), title: "Note 2", description: "Description 2"),
             Note(id: UUID(), title: "Note 3", description: "Description 3"),
@@ -43,6 +43,6 @@ struct NotesListContent_Previews: PreviewProvider {
             Note(id: UUID(), title: "Note 5", description: "Description 5"),
             Note(id: UUID(), title: "Note 6", description: "Description 6"),
         ])
-        return NotesListContent(content: a, manageNoteViewModel: DeleteNoteViewModelPreview()).environmentObject(Assembler())
+        return NotesListContent(content: notes, manageNoteViewModel: ManageNoteViewModelImpl(noteStorage: NullStorage(), operation: .delete)).environmentObject(Assembler())
     }
 }
